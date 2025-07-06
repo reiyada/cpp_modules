@@ -1,36 +1,48 @@
-NAME     = phonebook
-SRCS     = 
-OBJDIR   = obj
-OBJS     = $(SRCS:.cpp=.o)
-OBJS     := $(addprefix $(OBJDIR)/, $(notdir $(OBJS)))
-CXX      = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+# ---------------------------------------------------------------------------- #
+#                                 Configuration                                #
+# ---------------------------------------------------------------------------- #
+NAME      = phonebook
+CXX       = c++
+CXXFLAGS  = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
 
+SRC_DIR   = srcs
+INC_DIR   = includes
+OBJ_DIR   = obj
+
+SRCS      = $(wildcard $(SRC_DIR)/*.cpp)
+OBJS      = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRCS))
+
+# ---------------------------------------------------------------------------- #
+#                                     Color                                    #
+# ---------------------------------------------------------------------------- #
 GREEN_WHITE = \033[1;32;47m
 BLUE     = \033[0;34m
 CYAN     = \033[0;36m
 RED      = \033[0;31m
 RESET    = \033[0m
 
+# ---------------------------------------------------------------------------- #
+#                                     Rules                                    #
+# ---------------------------------------------------------------------------- #
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+	@$(CXX) $(CXXFLAGS) -o $@ $^
+	@echo "$(GREEN_WHITE)💣 Build complete! Run ./$(NAME) 💣$(RESET)"
 
-$(OBJDIR)/%.o: %.cpp | $(OBJDIR)
-	@echo "$(BLUE)🔨...Compiling $(NAME)... 🔨$(RESET)"
-	@echo "$(GREEN_WHITE)💣 ./$(NAME) is ready to be executed!!💣$(RESET)"
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
+	@mkdir -p $(dir $@)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(OBJDIR):
-	@mkdir -p $(OBJDIR)
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
 
 clean:
-	@echo "$(CYAN)🧹...Cleaning object files... 🧹$(RESET) "
-	@rm -rf $(OBJDIR)
+	@echo "$(CYAN)🧹 Cleaning object files...$(RESET)"
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	@echo "$(CYAN)🧹...Cleaning $(NAME)... 🧹$(RESET) "
+	@echo "$(CYAN)🧹 Removing executable...$(RESET)"
 	@rm -f $(NAME)
 
 re: fclean all
