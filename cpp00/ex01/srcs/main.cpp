@@ -19,11 +19,15 @@ bool    newContactConfirm(PhoneBook phoneBook)
         std::getline(std::cin, yn);
         if (yn == "YES")
         {
-            std::cout << "The new contact has been successfully added to your Phone Book!" << std::endl;
+            std::cout << "The new contact has been successfully added to your Phone Book!" << std::endl << std::endl;
             return true;
         }
         else if (yn == "NO")
+        {
+            std::cout << "You go back to the menu." << std::endl << std::endl;
             return false;
+        }
+            
         else
             std::cout << "Enter 'YES' or 'NO', please!" << std::endl;
     }
@@ -43,11 +47,12 @@ int    runPhoneBook()
         {
             newPhoneBook.addContact();
             if (!newContactConfirm(newPhoneBook))
-                return 0;//remove the new contact
+                newPhoneBook.destroyNewContact();//remove the new contact
         }
         else if (cmd == "SEARCH")
         {
             newPhoneBook.printShortContactlist();
+            std::cout << std::endl;
             //Ask for the index
         }
         else if (cmd == "EXIT")

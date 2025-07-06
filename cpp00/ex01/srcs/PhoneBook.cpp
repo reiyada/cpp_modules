@@ -5,10 +5,14 @@
 #include <ostream>
 #include <iomanip> 
 
+int PhoneBook::getIndex() const
+{
+    return index - 1;
+}
+
 void    PhoneBook::addContact()
 {
     contacts[index].setContactInfo();
-
     index = (index + 1) % 8;
     if (count < 8)
         count++;
@@ -17,7 +21,7 @@ void    PhoneBook::addContact()
 void PhoneBook::printNewContact() const
 {
     int i;
-    i = index - 1;
+    i = getIndex();
     contacts[i].printContactInfo();
 }
 
@@ -27,8 +31,17 @@ void PhoneBook::printShortContactlist()const
                 << std::setw(10) << "First Name" << "|"
                 << std::setw(10) << "Last Name" << "|"
                 << std::setw(10) << "Nickname" << "|" << std::endl;
-    for(int i = 0; i < index; i++)
+    for(int i = 0; i <= getIndex(); i++)
     {
         contacts[i].printShortContactInfo(i);
     }
+}
+
+void PhoneBook::destroyNewContact()
+{
+    // int index;
+
+    // index = getIndex();
+    contacts[getIndex()].clear();
+    index--;
 }

@@ -17,6 +17,7 @@ public:
     void setContactInfo();
     void printContactInfo() const;
     void printShortContactInfo(int index) const;
+    void clear();
 };
 
 #endif

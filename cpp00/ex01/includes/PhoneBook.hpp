@@ -17,10 +17,11 @@ public:
         count = 0;
         index = 0;
     };
-    int getIndex();
+    int getIndex() const;
     void addContact();
     void printNewContact() const;
     void printShortContactlist() const;
+    void destroyNewContact();
 };
 
 #endif

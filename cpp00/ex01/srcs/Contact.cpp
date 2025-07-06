@@ -114,3 +114,12 @@ void Contact::printShortContactInfo(int index) const
     printUpTo10(nickname);
     std::cout << "|" << std::endl;
 }
+
+void Contact:: clear()
+{
+    firstName = "";
+    lastName = "";
+    nickname = "";
+    phoneNumber = "";
+    darkestSecret = "";
+}
