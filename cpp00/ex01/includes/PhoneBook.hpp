@@ -18,10 +18,12 @@ public:
         index = 0;
     };
     int getIndex() const;
+    int getLastIndex() const;
     void addContact();
     void printNewContact() const;
     void printShortContactlist() const;
     void destroyNewContact();
+    void printContactByIndex(int i) const;
 };
 
 #endif

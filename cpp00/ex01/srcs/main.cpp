@@ -1,8 +1,9 @@
-#include <iostream>
-#include <ostream>
-#include <string>
+
 #include "../includes/Contact.hpp"
 #include "../includes/PhoneBook.hpp"
+#include "../includes/utils.hpp"
+#include <ostream>
+#include <string>
 
 bool    newContactConfirm(PhoneBook phoneBook)
 {
@@ -33,7 +34,55 @@ bool    newContactConfirm(PhoneBook phoneBook)
     }
 }
 
-int    runPhoneBook()
+void    searchByIndex(PhoneBook phoneBook)
+{
+    int index;
+    std::string input;
+
+    while (true)
+    {
+        std::cout << "Enter the index to see full information: ";
+        std::getline(std::cin, input);
+        if (!checkEmpty(input))
+            continue;
+        if (!isDigitString(input))
+        {
+            std::cout << "Index must be a digit!" << std::endl;
+            continue;
+        }
+        else
+            break;
+    }
+    index = std::atoi(input.c_str());
+    std::cout << std::endl;
+    phoneBook.printContactByIndex(index);
+    std::cout << std::endl;
+}
+
+int exitPhoneBook()
+{
+    std::string input;
+
+    while (true)
+    {
+        std::cout << "Are you sure to exit your phone book? (YES/NO):";
+        std::getline(std::cin, input);
+        if (input == "YES")
+        {
+            std::cout << "Thank you for using the phone book! We reset the data." << std::endl;
+            return 1;
+        }
+        else if (input == "NO")
+        {
+            std::cout << "You go back to the menu." << std::endl << std::endl;
+            return 0;
+        }
+        else
+            std::cout << "Enter 'YES' or 'NO', please!" << std::endl;
+    }
+}
+
+void    runPhoneBook()
 {
     PhoneBook newPhoneBook;
     std::string cmd;
@@ -54,20 +103,18 @@ int    runPhoneBook()
             newPhoneBook.printShortContactlist();
             std::cout << std::endl;
             //Ask for the index
+            searchByIndex(newPhoneBook);
         }
         else if (cmd == "EXIT")
         {
-            //make sure if they really wanna exit
-            break;
+            if (exitPhoneBook())
+                break;
         }
     }
-    return 1;
 }
 
 int main()
 {
-    if (runPhoneBook())
-        return 0;
-    else
-        return 1;
+    runPhoneBook();
+    return 0;
 }
