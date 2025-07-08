@@ -2,6 +2,7 @@
 #include "../includes/Contact.hpp"
 #include "../includes/PhoneBook.hpp"
 #include "../includes/utils.hpp"
+#include <iostream>
 #include <ostream>
 #include <string>
 
@@ -10,27 +11,29 @@ bool    newContactConfirm(PhoneBook phoneBook)
     std::string yn;
 
     std::cout << std::endl;
-    std::cout << "Are you sure to add this contact?" << std::endl;
+    if (phoneBook.getCount() >= 8)
+        std::cout << "Since you are trying to add more than 8 contacts, we will replace the new one with the oldest one." << std::endl;
+    std::cout << "\033[32mAre you sure to add this contact?\033[0m " << std::endl;
     phoneBook.printNewContact();
     std::cout << std::endl;
 
     while (true)
     {
-        std::cout << "(YES/NO): ";
+        std::cout << "\033[32m(YES/NO): \033[0m";
         std::getline(std::cin, yn);
         if (yn == "YES")
         {
-            std::cout << "The new contact has been successfully added to your Phone Book!" << std::endl << std::endl;
+            std::cout << "\033[32mThe new contact has been successfully added to your Phone Book!\033[0m" << std::endl << std::endl;
             return true;
         }
         else if (yn == "NO")
         {
-            std::cout << "You go back to the menu." << std::endl << std::endl;
+            std::cout << "\033[32mYou go back to the menu.\033[0m" << std::endl << std::endl;
             return false;
         }
             
         else
-            std::cout << "Enter 'YES' or 'NO', please!" << std::endl;
+            std::cout << "\033[1;31mEnter 'YES' or 'NO', please!\033[0m" << std::endl;
     }
 }
 
@@ -41,13 +44,13 @@ void    searchByIndex(PhoneBook phoneBook)
 
     while (true)
     {
-        std::cout << "Enter the index to see full information: ";
+        std::cout << "\033[32mEnter the index to see full information: \033[0m";
         std::getline(std::cin, input);
         if (!checkEmpty(input))
             continue;
         if (!isDigitString(input))
         {
-            std::cout << "Index must be a digit!" << std::endl;
+            std::cout << "\033[1;31mIndex must be a digit!\033[0m" << std::endl;
             continue;
         }
         else
@@ -65,20 +68,20 @@ int exitPhoneBook()
 
     while (true)
     {
-        std::cout << "Are you sure to exit your phone book? (YES/NO):";
+        std::cout << "\033[32mAre you sure to exit your phone book? (YES/NO):\033[0m";
         std::getline(std::cin, input);
         if (input == "YES")
         {
-            std::cout << "Thank you for using the phone book! We reset the data." << std::endl;
+            std::cout << "\033[32mThank you for using the phone book! We reset the data.\033[0m" << std::endl;
             return 1;
         }
         else if (input == "NO")
         {
-            std::cout << "You go back to the menu." << std::endl << std::endl;
+            std::cout << "\033[32mYou go back to the menu.\033[0m" << std::endl << std::endl;
             return 0;
         }
         else
-            std::cout << "Enter 'YES' or 'NO', please!" << std::endl;
+            std::cout << "\033[1;31mEnter 'YES' or 'NO', please!\033[0m" << std::endl;
     }
 }
 
@@ -89,7 +92,7 @@ void    runPhoneBook()
 
     while (true)
     {
-        std::cout << "Enter command (ADD/SEARCH/EXIT): ";
+        std::cout << "\033[1;32mEnter command (ADD/SEARCH/EXIT):\033[0m ";
         std::getline(std::cin, cmd);
     
         if (cmd == "ADD")

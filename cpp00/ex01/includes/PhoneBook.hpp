@@ -18,6 +18,7 @@ public:
         index = 0;
     };
     int getIndex() const;
+    int getCount() const;
     int getLastIndex() const;
     void addContact();
     void printNewContact() const;

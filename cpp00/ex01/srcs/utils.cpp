@@ -4,7 +4,7 @@ bool checkEmpty(const std::string& str)
 {
     if (str.empty())
     {
-        std::cout << "Enter something, please!" << std::endl;
+        std::cout << "\033[1;31mEnter something, please!\033[0m" << std::endl;
         return false;
     }
     return true;
@@ -16,7 +16,7 @@ bool isAlphaString(const std::string& str)
     {
         if (!isalpha(str[i]))
         {
-            std::cout << "You can enter only characters!" << std::endl;
+            std::cout << "\033[1;31mYou can enter only characters!\033[0m" << std::endl;
             return false;
         }
     }
@@ -29,7 +29,7 @@ bool isDigitString(const std::string& str)
     {
         if (!isdigit(str[i]))
         {
-            std::cout << "You can enter only digits!" << std::endl;
+            std::cout << "\033[1;31mYou can enter only digits!\033[0m" << std::endl;
             return false;
         }
     }

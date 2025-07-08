@@ -10,6 +10,11 @@ int PhoneBook::getIndex() const
     return index - 1;
 }
 
+int PhoneBook::getCount() const
+{
+    return count;
+}
+
 int PhoneBook::getLastIndex() const
 {
     if (count == 0)
@@ -31,39 +36,48 @@ void PhoneBook::printNewContact() const
     contacts[i].printContactInfo();
 }
 
-void PhoneBook::printShortContactlist()const
+void PhoneBook::printShortContactlist() const
 {
-    int fixedIndex;
+    int realIndex;
+    int displayIndex;
 
     std::cout << "|" << std::setw(10) << "Index" << "|"
                 << std::setw(10) << "First Name" << "|"
                 << std::setw(10) << "Last Name" << "|"
                 << std::setw(10) << "Nickname" << "|" << std::endl;
-    for(int i = 0; i < count && i < 8; i++)
+
+    for (int i = 0; i < count && i < 8; i++)
     {
-        fixedIndex = i % 8;
-        contacts[fixedIndex].printShortContactInfo(i);
+        realIndex = i % 8;
+        if (count >= 8)
+            displayIndex = (i + 8 - index) % 8;
+        else
+            displayIndex = i;
+
+        contacts[realIndex].printShortContactInfo(displayIndex);
     }
 }
 
 void PhoneBook::destroyNewContact()
 {
-    // int index;
-
-    // index = getIndex();
     contacts[getLastIndex()].clear();
     index--;
 }
 
 void PhoneBook::printContactByIndex(int i) const
 {
-    int fixedIndex;
+    int realIndex;
 
-    if (i < 0 || i > count || i >= 8)
+    if (i < 0 || i >= count)
     {
-        std::cout << "Invalid index!" << std::endl;
+        std::cout << "\033[1;31mInvalid index!\033[0m" << std::endl;
         return;
     }
-    fixedIndex = i % 8;
-    contacts[fixedIndex].printContactInfo();
+
+    if (count >= 8)
+        realIndex = (index + i) % 8;
+    else
+        realIndex = i;
+
+    contacts[realIndex].printContactInfo();
 }

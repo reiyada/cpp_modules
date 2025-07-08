@@ -3,7 +3,7 @@
 # ---------------------------------------------------------------------------- #
 NAME      = phonebook
 CXX       = c++
-CXXFLAGS  = -Wall -Wextra -Werror -std=c++98 -I$(INC_DIR)
+CXXFLAGS  = -Wall -Wextra -Werror -std=c++98 -g -o -I$(INC_DIR)
 
 SRC_DIR   = srcs
 INC_DIR   = includes
