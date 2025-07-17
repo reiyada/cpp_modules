@@ -1,18 +1,23 @@
 #include "../includes/Zombie.hpp"
 #include "../includes/Zombie.h"
 
-void Zombie::annouce()
+Zombie::Zombie()
 {
-    std::cout << this->name << ": " << "BraiiiiiiinnnzzzZ..." << std::endl;
-}
 
-Zombie::Zombie(std::string newName)
-{
-    this->name = newName;
 }
 
 Zombie::~Zombie()
 {
     std::cout << "DESTRUCTOR: ";
     std::cout << this->name <<" has been destroyed" << std::endl;
+}
+
+void Zombie::setName(std::string newName)
+{
+    name = newName;
+}
+
+void Zombie::annouce()
+{
+    std::cout << this->name << ": " << "BraiiiiiiinnnzzzZ..." << std::endl;
 }
