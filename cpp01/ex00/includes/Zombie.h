@@ -3,7 +3,6 @@
 
 #include "../includes/Zombie.hpp"
 #include <iostream>
-#include <string.h>
 #include <string>
 
 Zombie* newZombie(std::string name);

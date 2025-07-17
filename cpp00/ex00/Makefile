@@ -4,7 +4,7 @@ OBJDIR   = obj
 OBJS     = $(SRCS:.cpp=.o)
 OBJS     := $(addprefix $(OBJDIR)/, $(notdir $(OBJS)))
 CXX      = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -o 
 
 GREEN_WHITE = \033[1;32;47m
 BLUE     = \033[0;34m

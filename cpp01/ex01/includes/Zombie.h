@@ -3,7 +3,6 @@
 
 #include "../includes/Zombie.hpp"
 #include <iostream>
-#include <string.h>
 #include <string>
 
 Zombie* zombieHorde(int N, std::string name);
