@@ -13,7 +13,7 @@ public:
 
 private:
     std::string name;
-    Weapon* weapon;
+    Weapon* weapon;//reference cannot be null so we use a pointer for B incase it does not have weapons
 };
 
 
