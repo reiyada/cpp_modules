@@ -7,7 +7,8 @@
 
 int PhoneBook::getIndex() const
 {
-    return index - 1;
+    // return index - 1;
+    return index;
 }
 
 int PhoneBook::getCount() const
@@ -62,16 +63,17 @@ void PhoneBook::destroyNewContact()
 {
     contacts[getLastIndex()].clear();
     index--;
+    count--;
 }
 
-void PhoneBook::printContactByIndex(int i) const
+bool PhoneBook::printContactByIndex(int i) const
 {
     int realIndex;
 
     if (i < 0 || i >= count)
     {
         std::cout << "\033[1;31mInvalid index!\033[0m" << std::endl;
-        return;
+        return false;
     }
 
     if (count >= 8)
@@ -80,4 +82,5 @@ void PhoneBook::printContactByIndex(int i) const
         realIndex = i;
 
     contacts[realIndex].printContactInfo();
+    return true;
 }

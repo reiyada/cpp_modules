@@ -1,10 +1,22 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ryada <ryada@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/08/05 14:29:50 by ryada             #+#    #+#              #
+#    Updated: 2025/08/05 14:38:21 by ryada            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME     = megaphone
 SRCS     = megaphone.cpp
 OBJDIR   = obj
 OBJS     = $(SRCS:.cpp=.o)
 OBJS     := $(addprefix $(OBJDIR)/, $(notdir $(OBJS)))
 CXX      = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g -o 
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
 
 GREEN_WHITE = \033[1;32;47m
 BLUE     = \033[0;34m

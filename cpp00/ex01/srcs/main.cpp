@@ -28,6 +28,7 @@ bool    newContactConfirm(PhoneBook phoneBook)
         }
         else if (yn == "NO")
         {
+            //need to set null for the new contact
             std::cout << "\033[32mYou go back to the menu.\033[0m" << std::endl << std::endl;
             return false;
         }
@@ -54,12 +55,16 @@ void    searchByIndex(PhoneBook phoneBook)
             continue;
         }
         else
-            break;
+        {
+            index = std::atoi(input.c_str());
+            std::cout << std::endl;
+            if (phoneBook.printContactByIndex(index))
+            {
+                std::cout << std::endl;
+                break;
+            }
+        }
     }
-    index = std::atoi(input.c_str());
-    std::cout << std::endl;
-    phoneBook.printContactByIndex(index);
-    std::cout << std::endl;
 }
 
 int exitPhoneBook()

@@ -2,7 +2,7 @@
 #include "../includes/PhoneBook.hpp"
 #include "../includes/utils.hpp"
 
-//maybe I can do like required info and not required ones
+
 void    Contact::setContactInfo()
 {
     do {

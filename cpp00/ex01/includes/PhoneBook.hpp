@@ -12,7 +12,7 @@ private:
     int index;
 
 public:
-    PhoneBook()//constructor
+    PhoneBook()//constructor like init in c
     {
         count = 0;
         index = 0;
@@ -24,7 +24,7 @@ public:
     void printNewContact() const;
     void printShortContactlist() const;
     void destroyNewContact();
-    void printContactByIndex(int i) const;
+    bool printContactByIndex(int i) const;
 };
 
 #endif
