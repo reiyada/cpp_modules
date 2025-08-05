@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 15:32:32 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/05 15:32:33 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/05 17:08:56 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 int PhoneBook::getIndex() const
 {
-    // return index - 1;
     return index;
 }
 
@@ -61,12 +60,8 @@ void PhoneBook::printShortContactlist() const
 
     for (int i = 0; i < count && i < 8; i++)
     {
-        realIndex = i % 8;
-        if (count >= 8)
-            displayIndex = (i + 8 - index) % 8;
-        else
-            displayIndex = i;
-
+        realIndex = (index + i) % 8;
+        displayIndex = i;
         contacts[realIndex].printShortContactInfo(displayIndex);
     }
 }
@@ -87,15 +82,7 @@ bool PhoneBook::printContactByIndex(int i) const
         std::cout << "\033[1;31mInvalid index!\033[0m" << std::endl;
         return false;
     }
-
-    if (count >= 8)
-    {
-        realIndex = (index + i) % 8;
-        index = (index + i) % 8 - 7;
-    }
-    else
-        realIndex = i;
-
+    realIndex = (index + i) % 8;
     contacts[realIndex].printContactInfo();
     return true;
 }
