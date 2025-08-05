@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/05 17:13:55 by ryada             #+#    #+#             */
+/*   Updated: 2025/08/05 17:14:45 by ryada            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/Zombie.hpp"
 #include "../includes/Zombie.h"
 
 
 int main()
 {
-    int count = 7;
+    int count = 5;
     std::string newName = "Rei";
     Zombie* horde = zombieHorde(count, newName);
 
