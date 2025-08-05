@@ -11,7 +11,7 @@ bool    newContactConfirm(PhoneBook phoneBook)
     std::string yn;
 
     std::cout << std::endl;
-    if (phoneBook.getCount() >= 8)
+    if (phoneBook.getCount() > 8)
         std::cout << "Since you are trying to add more than 8 contacts, we will replace the new one with the oldest one." << std::endl;
     std::cout << "\033[32mAre you sure to add this contact?\033[0m " << std::endl;
     phoneBook.printNewContact();

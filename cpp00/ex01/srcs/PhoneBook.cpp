@@ -77,7 +77,10 @@ bool PhoneBook::printContactByIndex(int i) const
     }
 
     if (count >= 8)
+    {
         realIndex = (index + i) % 8;
+        index = (index + i) % 8 - 7;
+    }
     else
         realIndex = i;
 
