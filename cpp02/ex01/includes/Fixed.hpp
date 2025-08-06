@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:18:13 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/06 09:29:52 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/06 13:06:07 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-#define HARL_HPP
+#ifndef Fixed_HPP
+#define Fixed_HPP
 
 #include <string>
 
-class Harl
+class Fixed
 {
 private:
-    void debug(void);
-    void info(void);
-    void warning(void);
-    void error(void);
+    int _rawBits;
+    static const int _fractionalBits = 8;
 
 public:
-    void complain(std::string level);
+    Fixed();
+    Fixed(const Fixed &other);
+    Fixed(const int value);
+    Fixed(const float value);
+    Fixed &operator=(const Fixed &ori);
+    ~Fixed();
+
+    int getRawBits(void) const;
+    void setRawBits(int const raw);
+
+    float toFloat(void) const;
+    int toInt(void) const;
 };
+
+std::ostream& operator<<(std::ostream& out, Fixed const& value);
 
 #endif

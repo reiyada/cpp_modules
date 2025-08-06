@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:18:13 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/06 11:33:02 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/06 11:44:37 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Fixed
 {
 private:
     int _value;
-    static const int _fractionalBits;
+    static const int _fractionalBits = 8;
 
 public:
     Fixed();
