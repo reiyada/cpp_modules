@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replace.hpp                                        :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:18:13 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/05 17:18:16 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/06 09:29:52 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef REPLACE_HPP
-#define REPLACE_HPP
+#ifndef HARL_HPP
+#define HARL_HPP
 
 #include <string>
 
-class ReplaceFile
+class Harl
 {
 private:
-    std::string _filename;
-    std::string _s1;
-    std::string _s2;
+    void debug(void);
+    void info(void);
+    void warning(void);
+    void error(void);
 
 public:
-    ReplaceFile(const std::string& filename, const std::string& s1, const std::string& s2);
-    //use reference to avoid copying the strings
-    bool process();
+    void complain(std::string level);
 };
 
 #endif
