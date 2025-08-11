@@ -6,22 +6,28 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:18:28 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/06 09:38:40 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/11 15:50:43 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Harl.hpp"
+#include "../includes/Fixed.hpp"
 #include <iostream>
 
-int main(int argc, char **argv)
-{
-    Harl newHarl;
+int main( void ) {
 
-    if (argc != 2)
-    {
-        std::cerr << "Invalid argument number." << std::endl;
-        return 1;
-    }
-    newHarl.complain(argv[1]);
+    Fixed a;
+    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+
+    std::cout << a << std::endl;
+    std::cout << ++a << std::endl;
+    std::cout << a << std::endl;
+    std::cout << a++ << std::endl;
+    std::cout << a << std::endl;
+
+    std::cout << b << std::endl;
+
+    std::cout << Fixed::max( a, b ) << std::endl;
+
     return 0;
 }
+
