@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 08:48:38 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/11 15:50:40 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/11 15:55:19 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,7 @@ Fixed Fixed::operator--(int)
 //gonna use the operators directly!
 Fixed& Fixed::min(Fixed& a, Fixed& b)
 {
+    // std::cout << "non const min is called" << std::endl;
     if (a < b)
         return a;
     else
@@ -159,6 +160,7 @@ Fixed& Fixed::min(Fixed& a, Fixed& b)
 
 const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
 {
+    // std::cout << "const min is called" << std::endl;
     if (a < b)
         return a;
     else
@@ -167,6 +169,7 @@ const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
 
 Fixed& Fixed::max(Fixed& a, Fixed& b)
 {
+    // std::cout << "non const max is called" << std::endl;
     if (a > b)
         return a;
     else
@@ -175,6 +178,7 @@ Fixed& Fixed::max(Fixed& a, Fixed& b)
 
 const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
 {
+    // std::cout << "const max is called" << std::endl;
     if (a > b)
         return a;
     else
