@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 17:18:13 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/06 09:29:52 by ryada            ###   ########.fr       */
+/*   Created: 2025/08/11 16:33:22 by ryada             #+#    #+#             */
+/*   Updated: 2025/08/11 16:41:36 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-#define HARL_HPP
+#include "../includes/Fixed.hpp"
+#include "../includes/Point.hpp"
+#include <iostream>
 
-#include <string>
+Point::Point():x(0), y(0){
+}
 
-class Harl
-{
-private:
-    void debug(void);
-    void info(void);
-    void warning(void);
-    void error(void);
+Point::Point(const float xValue, const float yValue): x(xValue), y(yValue){
+}
 
-public:
-    void complain(std::string level);
-};
+Point::Point(Point& other): x(other.x), y(other.y){
+}
 
-#endif
+Point& Point::operator=(const Point& ori){
+
+}

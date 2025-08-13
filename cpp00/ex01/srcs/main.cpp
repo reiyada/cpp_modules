@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 15:32:26 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/05 15:32:26 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/13 09:25:54 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ bool    newContactConfirm(PhoneBook phoneBook)
 
     std::cout << std::endl;
     if (phoneBook.getCount() > 8)
-        std::cout << "Since you are trying to add more than 8 contacts, we will replace the new one with the oldest one." << std::endl;
+        std::cout << "\033[1;31mSince you are trying to add more than 8 contacts," << std::endl 
+                    << "we need to delete the oldest contact to add the new one.\033[0m" << std::endl;
     std::cout << "\033[32mAre you sure to add this contact?\033[0m " << std::endl;
     phoneBook.printNewContact();
     std::cout << std::endl;

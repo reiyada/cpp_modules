@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 15:32:32 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/05 17:08:56 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/13 09:28:40 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,51 @@
 #include <ostream>
 #include <iomanip> 
 
+PhoneBook::PhoneBook(): _count(0), _curIndex(0){
+}
+
 int PhoneBook::getIndex() const
 {
-    return index;
+    return _curIndex;
 }
 
 int PhoneBook::getCount() const
 {
-    return count;
+    return _count;
 }
 
 int PhoneBook::getLastIndex() const
 {
-    if (count == 0)
-        return -1;
-    return (index == 0) ? 7 : index - 1;
+    return _curIndex - 1;
 }
 
 void    PhoneBook::addContact()
 {
-    contacts[index].setContactInfo();
-    index = (index + 1) % 8;
-    count++;
+    if (_count < 8)
+    {
+        contacts[_curIndex].setContactInfo();
+        _curIndex++;
+        _count++;
+    }
+    else
+    {
+        updateIndex();
+        contacts[_curIndex].setContactInfo();
+        _count++;
+    }
+}
+
+void PhoneBook::updateIndex()
+{
+    for (int i = 1; i < 8; i++)
+    {
+        contacts[i - 1].setFirstName(contacts[i].getFirstName());
+        contacts[i - 1].setLastName(contacts[i].getLastName());
+        contacts[i - 1].setNickname(contacts[i].getNickname());
+        contacts[i - 1].setPhoneNumber(contacts[i].getPhoneNumber());
+        contacts[i - 1].setDarkestSecret(contacts[i].getDarkestSecret());
+    }
+    _curIndex = 7;
 }
 
 void PhoneBook::printNewContact() const
@@ -50,39 +73,32 @@ void PhoneBook::printNewContact() const
 
 void PhoneBook::printShortContactlist() const
 {
-    int realIndex;
-    int displayIndex;
-
     std::cout << "|" << std::setw(10) << "Index" << "|"
                 << std::setw(10) << "First Name" << "|"
                 << std::setw(10) << "Last Name" << "|"
                 << std::setw(10) << "Nickname" << "|" << std::endl;
 
-    for (int i = 0; i < count && i < 8; i++)
+    for (int i = 0; i < _count && i < 8; i++)
     {
-        realIndex = (index + i) % 8;
-        displayIndex = i;
-        contacts[realIndex].printShortContactInfo(displayIndex);
+        contacts[i].printShortContactInfo(i);
     }
 }
 
 void PhoneBook::destroyNewContact()
 {
     contacts[getLastIndex()].clear();
-    index--;
-    count--;
+    _curIndex--;
+    _count--;
 }
 
 bool PhoneBook::printContactByIndex(int i) const
 {
-    int realIndex;
-
-    if (i < 0 || i >= count)
+    if (i < 0 || i >= 8 || i > _curIndex)
     {
         std::cout << "\033[1;31mInvalid index!\033[0m" << std::endl;
         return false;
     }
-    realIndex = (index + i) % 8;
-    contacts[realIndex].printContactInfo();
+    contacts[i].printContactInfo();
     return true;
 }
+

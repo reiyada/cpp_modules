@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 15:32:14 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/05 15:32:15 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/13 09:29:59 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,20 @@ class PhoneBook
 {
 private:
     Contact contacts[8];
-    int count;
-    int index;
+    int     _count;
+    int     _curIndex;
 
 public:
-    PhoneBook()//constructor like init in c
-    {
-        count = 0;
-        index = 0;
-    };
-    int getIndex() const;
-    int getCount() const;
-    int getLastIndex() const;
-    void addContact();
-    void printNewContact() const;
-    void printShortContactlist() const;
-    void destroyNewContact();
-    bool printContactByIndex(int i) const;
+    PhoneBook();//constructor like init in c
+    int     getIndex() const;
+    int     getCount() const;
+    int     getLastIndex() const;
+    void    updateIndex();
+    void    addContact();
+    void    printNewContact() const;
+    void    printShortContactlist() const;
+    void    destroyNewContact();
+    bool    printContactByIndex(int i) const;
 };
 
 #endif

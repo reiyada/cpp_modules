@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:18:13 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/11 16:18:04 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/11 15:40:56 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ public:
     static const Fixed& min(const Fixed& a, const Fixed& b);
     static Fixed& max(Fixed& a, Fixed& b);
     static const Fixed& max(const Fixed& a, const Fixed& b);
-//If both arguments are non-const lvalues → the non-const overload.
-//If either argument is const (or something that can’t bind to non-const, like a temporary) → the const overload.
 
     int getRawBits(void) const;
     void setRawBits(int const raw);

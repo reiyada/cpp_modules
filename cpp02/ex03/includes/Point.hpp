@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 17:18:28 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/11 16:27:05 by ryada            ###   ########.fr       */
+/*   Created: 2025/08/11 16:19:02 by ryada             #+#    #+#             */
+/*   Updated: 2025/08/13 08:03:49 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Fixed.hpp"
-#include "../includes/Point.hpp"
-#include <iostream>
+#ifndef POINT_HPP
+#define POINT_HPP
 
-int main( void ) {
-    return 0;
-}
+#include "Fixed.hpp"
+#include <string>
 
+class Point
+{
+private:
+    const Fixed x;
+    const Fixed y;
+
+public:
+    Point();
+    Point(const float a, const float b);
+    Point(Point& other);
+    Point& operator=(const Point& ori);
+    ~Point();
+};
+
+
+#endif
