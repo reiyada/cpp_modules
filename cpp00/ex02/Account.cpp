@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 15:32:50 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/05 15:32:52 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/13 09:44:35 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,7 @@ void Account::displayStatus() const
 
 void Account::_displayTimestamp()
 {
-    std::time_t now = std::time(NULL);
+    std::time_t now = std::time(NULL);//NULL => use the system’s current time
     std::tm* t = std::localtime(&now);
 
     std::cout << "[" << (t->tm_year + 1900)
@@ -142,3 +142,15 @@ void Account::_displayTimestamp()
                 << std::setw(2) << t->tm_min
                 << std::setw(2) << t->tm_sec << "]";
 }
+
+// struct tm {
+//     int tm_sec;   //seconds [0, 60]
+//     int tm_min;   //minutes [0, 59]
+//     int tm_hour;  //hours [0, 23]
+//     int tm_mday;  //day of month [1, 31]
+//     int tm_mon;   //months since January [0, 11]
+//     int tm_year;  //years since 1900
+//     int tm_wday;  //day of week [0, 6] (Sunday = 0)
+//     int tm_yday;  //day of year [0, 365]
+//     int tm_isdst; //daylight saving time flag
+// };
