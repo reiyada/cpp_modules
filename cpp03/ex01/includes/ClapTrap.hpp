@@ -6,17 +6,18 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 11:44:24 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/13 13:43:08 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/13 16:47:16 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
+
 #include <string>
 
 class ClapTrap
 {
-private:
+protected://not reachable from the outside of the class but reachable from its child class
     std::string _name;
     int         _hitPoints;
     int         _energyPoints;

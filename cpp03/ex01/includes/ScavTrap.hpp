@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/13 13:34:37 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/13 16:56:34 by ryada            ###   ########.fr       */
+/*   Created: 2025/08/13 14:50:24 by ryada             #+#    #+#             */
+/*   Updated: 2025/08/13 17:01:56 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ClapTrap.hpp"
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
-int main()
+#include <string>
+#include "ClapTrap.hpp"
+
+class ScavTrap: public ClapTrap
 {
-    ClapTrap ct1("Alpha");
-    ClapTrap ct2("Bravo");
+public:
+    ScavTrap(std::string newName);
+    ~ScavTrap();
 
-    ct1.attack("Bravo");
-    ct2.takeDamage(0);
+    void        attack(const std::string& target);
 
-    ct2.beRepaired(5);
-    ct1.takeDamage(3);
+    void        guardGate();
+};
 
-    ct1.attack("Bravo");
-    ct1.beRepaired(2);
-
-    for (int i = 0; i < 10; ++i) {
-        ct1.attack("Bravo");
-    }
-
-    ct1.attack("Bravo");
-
-    return 0;
-}
+#endif

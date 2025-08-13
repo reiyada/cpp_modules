@@ -6,20 +6,21 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 11:48:48 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/13 13:59:34 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/13 17:25:05 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ClapTrap.hpp"
+#include "../includes/define.hpp"
 #include <iostream>
 
 ClapTrap::ClapTrap(std::string newName): _name(newName), _hitPoints(10), _energyPoints(10), _attackDamage(0){
-    std::cout << "ClapTrap constructor has been called" << std::endl;
+    std::cout << B_GREEN << "ClapTrap constructor has been called" << RESET << "---> " << _name << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap destructor has been called" << std::endl;
+    std::cout << B_GREEN << "ClapTrap destructor has been called" << RESET << "---> " << _name << std::endl;
 }
 
 void    ClapTrap::attack(const std::string& target)
@@ -28,7 +29,7 @@ void    ClapTrap::attack(const std::string& target)
         return;
     this->_energyPoints--;
 
-    std::cout << "ClapTrap " 
+    std::cout << B_GREEN << "ClapTrap " << RESET
                 << "<" << this->getName() <<  "> "
                 << "attacks "
                 << "<" << target << ">, "
@@ -47,7 +48,7 @@ void    ClapTrap::takeDamage(unsigned int amount)
         return;
     this->_hitPoints -= amount;
 
-    std::cout << "ClapTrap "
+    std::cout << B_GREEN << "ClapTrap " << RESET
                 << "<" << this->getName() <<  "> "
                 << "received "
                 << "<" << amount << "> "
@@ -65,7 +66,7 @@ void    ClapTrap::beRepaired(unsigned int amount)
     this->_hitPoints += amount;
     this->_energyPoints--;
 
-    std::cout << "ClapTrap "
+    std::cout << B_GREEN << "ClapTrap " << RESET
                 << "<" << this->getName() <<  "> "
                 <<"cured "
                 << "<" << amount << "> "
@@ -100,7 +101,7 @@ bool    ClapTrap::noEnergy()
 {
     if (this->getEnergyPoints() <= 0 || this->getHitPoints() <= 0)
     {
-        std::cout << "ClapTrap "
+        std::cout << B_GREEN << "ClapTrap " << RESET
                     << "<" << this->getName() <<  "> "
                     << "does not have points to make actions..."
                     << std::endl;
