@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 16:19:02 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/13 08:03:49 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/13 10:50:10 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,12 @@ public:
     Point(Point& other);
     Point& operator=(const Point& ori);
     ~Point();
+
+    Fixed   getX() const;
+    Fixed   getY() const;
 };
 
+Fixed areaSign(Point const& p1, Point const& p2, Point const& p3);
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
 #endif
