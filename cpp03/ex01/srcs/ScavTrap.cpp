@@ -43,3 +43,10 @@ void    ScavTrap::attack(const std::string& target)
                 << "<" << this->getEnergyPoints() << "> "
                 << "energy points! " << std::endl;
 }
+
+void    ScavTrap::guardGate()
+{
+    std::cout << B_MAGENTA << "ScaTrap " << RESET
+                << "<" << this->getName() <<  "> "
+                << "is now on Gate keeper mode!" << std::endl;
+}

@@ -14,13 +14,32 @@
 #include <iostream>
 
 ClapTrap::ClapTrap(std::string newName): _name(newName), _hitPoints(10), _energyPoints(10), _attackDamage(0){
-    std::cout << "ClapTrap constructor has been called" << std::endl;
+    std::cout << "ClapTrap constructor has been called ----->" << this->getName() << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap& other): _name(other._name), _hitPoints(other._hitPoints), _energyPoints(other._energyPoints), _attackDamage(other._attackDamage){
+    std::cout << "ClapTrap (copy) constructor has been called ----->" << this->getName() << std::endl;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap& other)
+{
+    if (this != &other)
+    {
+        _name = other._name;
+        _hitPoints = other._hitPoints;
+        _energyPoints = other._energyPoints;
+        _attackDamage = other._attackDamage;
+    }
+    std::cout << "ClapTrap assined ----->" << this->getName() << std::endl;
+    return *this;
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap destructor has been called" << std::endl;
+    std::cout << "ClapTrap destructor has been called ----->" << this->getName() << std::endl;
 }
+
+
 
 void    ClapTrap::attack(const std::string& target)
 {

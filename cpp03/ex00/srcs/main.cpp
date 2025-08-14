@@ -32,5 +32,9 @@ int main()
 
     ct1.attack("Bravo");
 
+    ClapTrap ct3(ct1);
+    ClapTrap ct4("Lemon");
+    ct4 = ct2;
+
     return 0;
 }

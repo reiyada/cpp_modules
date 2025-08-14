@@ -25,6 +25,8 @@ protected://not reachable from the outside of the class but reachable from its c
 
 public:
     ClapTrap(std::string newName);
+    ClapTrap(const ClapTrap& other);
+    ClapTrap& operator=(const ClapTrap& other);
     ~ClapTrap();
 
     void        attack(const std::string& target);
