@@ -12,6 +12,7 @@
 
 #include "../includes/ClapTrap.hpp"
 #include "../includes/ScavTrap.hpp"
+#include "../includes/FragTrap.hpp"
 #include "../includes/define.hpp"
 #include <iostream>
 
@@ -22,36 +23,37 @@ static void separator(const std::string& title) {
 int main()
 {
     separator("Construction order");
-    ClapTrap  c1("Clappy");
-    ScavTrap  s1("Scavy");//should show ClapTrap-then-ScavTrap construction messages
+    ClapTrap c1("Clappy");
+    ScavTrap s1("Scavy");
+    FragTrap f1("Frappy");
 
-    separator("Basic attacks (different messages)");
-    c1.attack("training dummy 01");//ClapTrap message
-    s1.attack("training dummy 02");//ScavTrap message (overridden)
+    separator("Basic attacks (different msg from Scavy)");
+    c1.attack("training dummy 01");
+    s1.attack("training dummy 02");
+    f1.attack("training dummy 03");
 
-    separator("Guard Gate special ability");
-    s1.guardGate();
+    separator("High Five special ability");
+    f1.highFivesGuys();
 
     separator("Damage & repair logic");
-    s1.takeDamage(30);//expect HP to drop
-    s1.beRepaired(20);//expect HP to rise
+    f1.takeDamage(30);//expect HP to drop
+    f1.beRepaired(20);//expect HP to rise
 
     separator("Energy depletion test");
-    for (int i = 0; i < 51; ++i)
+    for (int i = 0; i < 101; ++i)
     {
-        s1.attack("training dummy 03");
+        f1.attack("training dummy 03");
     }
 
-    separator("Copy Scavy into a new ScavTrap");
-    ScavTrap s2(s1);//copy construct
-    s2.attack("copy-target");
+    separator("Copy Frappy into a new FragTrap");
+    FragTrap f2(f1);//copy construct
+    f2.attack("copy-target");
 
-    separator("Copy Scavy into a new  ScavTrap / assing after construction");
-    ScavTrap s3("Other");
-    s3 = s1;//copy assign
-    s3.attack("assign-target");
+    separator("Copy Frappy into a new  FragTrap / assing after construction");
+    FragTrap f3("Fake Frappy");
+    f3 = f1;//copy assign
+    f3.attack("assign-target");
 
     separator("Destruction order");
-
     return 0;
 }
