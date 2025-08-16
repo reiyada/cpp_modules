@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 13:34:37 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/13 17:22:58 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/16 12:14:34 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main()
     ScavTrap s1("Scavy");
     FragTrap f1("Frappy");
 
-    separator("Basic attacks (different msg from Scavy)");
+    separator("Basic attacks (different msg from Scavy and Frappy)");
     c1.attack("training dummy 01");
     s1.attack("training dummy 02");
     f1.attack("training dummy 03");
@@ -53,6 +53,11 @@ int main()
     FragTrap f3("Fake Frappy");
     f3 = f1;//copy assign
     f3.attack("assign-target");
+
+    separator("Virtual test");
+    ClapTrap* s2 = new FragTrap("Fragot");
+    s2->attack("TARGET");
+    delete s2;
 
     separator("Destruction order");
     return 0;

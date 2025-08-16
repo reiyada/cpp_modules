@@ -6,17 +6,17 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 14:50:24 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/16 12:12:33 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/16 12:00:52 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef FragTrap_HPP
+#define FragTrap_HPP
 
 #include <string>
 #include "ClapTrap.hpp"
 
-class FragTrap: public ClapTrap
+class FragTrap: virtual public ClapTrap
 {
 public:
     FragTrap(std::string newName);
@@ -24,9 +24,22 @@ public:
     FragTrap& operator=(const FragTrap& other);
     ~FragTrap();
 
-    void        attack(const std::string& target);
-
     void highFivesGuys(void);
 };
 
 #endif
+
+//it needs to be like this;
+//       ClapTrap
+//        /    \
+//  ScavTrap  FragTrap
+//        \    /
+//     DiamondTrap
+
+//but without virtual, both Scav and Frag inherit their own separate copy of clap
+//so when Diamond inherits from both, it ends up with two Clap subobjects like this;
+// DiamondTrap
+// ├── ScavTrap
+// │   └── ClapTrap (1)
+// └── FragTrap
+//     └── ClapTrap (2)

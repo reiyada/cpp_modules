@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 11:44:24 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/13 13:43:08 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/16 11:16:27 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
     ClapTrap(std::string newName);
     ClapTrap(const ClapTrap& other);
     ClapTrap& operator=(const ClapTrap& other);
-    ~ClapTrap();
+    virtual ~ClapTrap();
 
     void        attack(const std::string& target);
     void        takeDamage(unsigned int amount);

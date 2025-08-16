@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 14:50:20 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/16 12:33:02 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/16 12:26:28 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,25 +37,6 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
 
 FragTrap::~FragTrap(){
 std::cout << B_BLUE << "FragTrap destructor has been called" << RESET << "---> " << _name << std::endl;
-}
-
-void    FragTrap::attack(const std::string& target)
-{
-    if (this->noEnergy())
-        return;
-    this->_energyPoints--;
-
-    std::cout << B_BLUE << "FragTrap " << RESET
-                << "<" << this->getName() <<  "> "
-                << "attacks "
-                << "<" << target << ">, "
-                << "causing "
-                << "<" << this->getAttackPoints() << "> "
-                << "points of damage, now it has "
-                << "<" << this->getHitPoints() << "> "
-                << "hit points and "
-                << "<" << this->getEnergyPoints() << "> "
-                << "energy points! " << std::endl;
 }
 
 void FragTrap::highFivesGuys()
