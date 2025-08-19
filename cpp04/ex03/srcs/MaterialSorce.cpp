@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 13:48:49 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/19 16:33:05 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/19 16:54:52 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 MateriaSource::MateriaSource() {
     for (int i = 0; i < 4; i++) {
-        this->_storage[i] = NULL;
+        this->_storage[i] = NULL;//set empty to all slot
     }
 }
 
