@@ -6,12 +6,16 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 08:48:38 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/06 09:29:42 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/19 09:21:07 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Harl.hpp"
 #include <iostream>
+
+Harl::Harl() {}
+
+Harl::~Harl() {}
 
 void Harl::debug(void)
 {

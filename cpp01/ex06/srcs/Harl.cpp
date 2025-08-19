@@ -6,12 +6,16 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 08:48:38 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/06 09:41:06 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/19 09:26:18 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Harl.hpp"
 #include <iostream>
+
+Harl::Harl() {}
+
+Harl::~Harl() {}
 
 void Harl::debug(void)
 {
@@ -63,15 +67,3 @@ void Harl::complain(std::string level)
     }
     std::cout <<"[ Probably complaining about insignificant problems ]" <<std::endl;
 }
-
-// void Harl::complain(std::string level)
-// {
-//     if (level == "DEBUG")
-//         debug();
-//     else if (level == "INFO")
-//         info();
-//     else if (level == "WARNING")
-//         warning();
-//     else if (level == "ERROR")
-//         error();
-// }

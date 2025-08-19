@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 17:17:18 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/19 09:10:43 by ryada            ###   ########.fr       */
+/*   Created: 2025/08/16 14:03:19 by ryada             #+#    #+#             */
+/*   Updated: 2025/08/18 16:42:51 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Weapon.hpp"
-#include "../includes/HumanA.hpp"
-#include <iostream>
+#ifndef DOG_HPP
+#define DOG_HPP
 
-HumanA::HumanA(std::string name, Weapon& weapon):_name(name), _weapon(weapon)
+#include "Animal.hpp"
+#include "Brain.hpp"
+
+class Dog: public Animal
 {
+private:
+    Brain* _brain;
 
-}
+public:
+    Dog();
+    Dog(const Dog& other);
+    Dog& operator=(const Dog& other);
+    ~Dog();
 
-HumanA::~HumanA()
-{
-    
-}
+    void makeSound() const;
 
-void HumanA::attack()
-{
-    std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
-}
+    Brain* getBrain();
+};
+
+
+#endif

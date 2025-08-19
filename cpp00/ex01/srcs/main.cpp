@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 15:32:26 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/13 09:25:54 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/19 09:31:38 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,11 @@ void    searchByIndex(PhoneBook phoneBook)
 
     while (true)
     {
+        if (phoneBook.getCount() == 0)
+        {
+            std::cout << "\033[32mThere is no contact on the phonebook yet.\033[0m" << std::endl;
+            return ;
+        }
         std::cout << "\033[32mEnter the index to see full information: \033[0m";
         std::getline(std::cin, input);
         if (!checkEmpty(input))
@@ -111,8 +116,8 @@ void    runPhoneBook()
     while (true)
     {
         std::cout << "\033[1;32mEnter command (ADD/SEARCH/EXIT):\033[0m ";
-        std::getline(std::cin, cmd);
-    
+        if (!std::getline(std::cin, cmd))
+            break;
         if (cmd == "ADD")
         {
             newPhoneBook.addContact();

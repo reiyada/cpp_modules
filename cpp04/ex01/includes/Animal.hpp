@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replace.hpp                                        :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 17:18:13 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/19 09:11:38 by ryada            ###   ########.fr       */
+/*   Created: 2025/08/16 13:58:46 by ryada             #+#    #+#             */
+/*   Updated: 2025/08/16 15:03:03 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef REPLACE_HPP
-#define REPLACE_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #include <string>
 
-class ReplaceFile
+class Animal
 {
-private:
-    std::string _filename;
-    std::string _s1;
-    std::string _s2;
+protected:
+    std::string _type;
 
 public:
-    ReplaceFile(const std::string& filename, const std::string& s1, const std::string& s2);
-    //use reference to avoid copying the strings
-    ~ReplaceFile();
+    Animal();
+    Animal(const Animal& other);
+    Animal& operator=(const Animal& other);
+    virtual ~Animal();
 
-    bool process();
+    virtual void makeSound() const;
+    const std::string& getType() const;
 };
 
 #endif
+
+
+///Polymorphism-> object-oriented programming (OOP) that
+// allows objects of different classes to be treated as
+// objects of a common base class

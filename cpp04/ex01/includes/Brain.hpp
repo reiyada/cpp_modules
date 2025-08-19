@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/05 17:17:18 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/19 09:10:43 by ryada            ###   ########.fr       */
+/*   Created: 2025/08/18 14:22:05 by ryada             #+#    #+#             */
+/*   Updated: 2025/08/18 16:15:55 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Weapon.hpp"
-#include "../includes/HumanA.hpp"
-#include <iostream>
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-HumanA::HumanA(std::string name, Weapon& weapon):_name(name), _weapon(weapon)
+#include <string>
+
+class Brain
 {
+private:
+    std::string _ideas[100];
 
-}
+public:
+    Brain();
+    Brain(const Brain& other);
+    Brain& operator=(const Brain& other);
+    ~Brain();
 
-HumanA::~HumanA()
-{
-    
-}
+    void        setIdea(int index, const std::string newIdea);
+    std::string getIdea(int index) const;
+};
 
-void HumanA::attack()
-{
-    std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
-}
+#endif

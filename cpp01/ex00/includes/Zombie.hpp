@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:11:49 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/05 17:11:49 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/19 08:29:05 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
     void annouce();
 
 private:
-    std::string name;
+    std::string _name;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:18:31 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/05 17:18:32 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/19 09:12:23 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 ReplaceFile::ReplaceFile(const std::string& filename, const std::string& s1, const std::string& s2)
     :_filename(filename), _s1(s1), _s2(s2) {}
+
+ReplaceFile::~ReplaceFile() {}
 
 bool ReplaceFile::process()
 {

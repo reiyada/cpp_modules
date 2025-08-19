@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:18:13 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/06 09:29:52 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/19 09:24:12 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ private:
     void error(void);
 
 public:
+    Harl();
+    ~Harl();
     void complain(std::string level);
 };
 

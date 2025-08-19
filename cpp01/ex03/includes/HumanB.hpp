@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:17:11 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/05 17:17:12 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/19 09:10:22 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ class HumanB
 {
 public:
     HumanB(std::string name);
+    ~HumanB();
+
     void setWeapon(Weapon& w);
     void attack();
 
 private:
-    std::string name;
-    Weapon* weapon;//reference cannot be null so we use a pointer for B incase it does not have weapons
+    std::string _name;
+    Weapon* _weapon;//reference cannot be null so we use a pointer for B incase it does not have weapons
 };
 
 

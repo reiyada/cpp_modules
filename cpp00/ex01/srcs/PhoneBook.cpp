@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 15:32:32 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/13 09:28:40 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/18 14:13:47 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void PhoneBook::destroyNewContact()
 
 bool PhoneBook::printContactByIndex(int i) const
 {
-    if (i < 0 || i >= 8 || i > _curIndex)
+    if (i < 0 || i >= 8 || i >= _curIndex)
     {
         std::cout << "\033[1;31mInvalid index!\033[0m" << std::endl;
         return false;
