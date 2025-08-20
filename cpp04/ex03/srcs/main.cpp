@@ -26,20 +26,49 @@ void    title(std::string title) {
 
 int main()
 {
-    title("Create and learn materials");
+    title("Create and Learn Materias");
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
+    src->learnMateria(new Cure());
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
-    src->learnMateria(new Ice());//must be ignored since it's 5th material
 
-    title("Create character and equip");
+    title("Create Character and Equip");
     ICharacter* me = new Character("me");
-    AMateria* tmp = src->createMateria("ice");
+    AMateria* tmp;
+    tmp = src->createMateria("ice");
     me->equip(tmp);
     tmp = src->createMateria("cure");
     me->equip(tmp);
+    tmp = src->createMateria("unknown");
+    if (!tmp) std::cout << "Tried to create unknown materia: failed \n";
+
+    title("Create another Character");
+    ICharacter* bob = new Character("bob");
+
+    title("Use equipped materias");
+    me->use(0, *bob);
+    me->use(1, *bob);
+    me->use(2, *bob);
+    me->use(-1, *bob);
+    me->use(42, *bob);
+
+    title("Unequip and manage raw pointer");
+    AMateria* toKeep = src->createMateria("cure");
+    me->equip(toKeep);
+    me->unequip(2);
+    delete toKeep;
+
+    title("Copy character deeply");
+    Character copy = *(dynamic_cast<Character*>(me));
+    copy.use(0, *bob);
+    copy.use(1, *bob);
+
+    title("Cleanup");
+    delete bob;
+    delete me;
+    delete src;
 }
 
 // int main()
