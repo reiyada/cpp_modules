@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 10:33:01 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/21 15:02:28 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/21 17:20:40 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ AMateria::AMateria(std::string const& type): _type(type) {
 
 AMateria::AMateria(const AMateria& other) {
     this->_type = other._type;
-    std::cout << B_BLUE << "Copying " << this->_type << "\n" << RESET;
+    std::cout << BLUE << "Copying " << this->_type << "\n" << RESET;
 }
 
 AMateria& AMateria::operator=(const AMateria& other) {

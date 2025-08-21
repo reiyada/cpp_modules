@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 11:00:45 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/19 16:21:37 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/21 17:20:19 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ Ice::~Ice() {}
 
 AMateria* Ice::clone() const {
     Ice* cloneIce = new Ice(*this);
+    std::cout << CYAN << "Cloning Ice" << RESET << std::endl;
     return cloneIce;
 }
 

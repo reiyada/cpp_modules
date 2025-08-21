@@ -6,13 +6,15 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 13:48:49 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/19 16:54:52 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/21 17:19:39 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/MateriaSource.hpp"
 #include "../includes/Ice.hpp"
 #include "../includes/Cure.hpp"
+#include "../includes/define.hpp"
+#include <iostream>
 
 MateriaSource::MateriaSource() {
     for (int i = 0; i < 4; i++) {
@@ -62,6 +64,8 @@ void MateriaSource::learnMateria(AMateria* ptr) {
         }
     }
     delete ptr;
+    //tyring to add more than 5
+    std::cout << B_RED << "Cannot learn more than 4 materials\n" << RESET;
 }
 
 AMateria* MateriaSource::createMateria(std::string const& type) {
