@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:18:31 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/19 09:12:23 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/21 16:22:49 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,11 @@ bool ReplaceFile::process()
         size_t pos = 0;
         while ((pos = line.find(_s1, pos)) != std::string::npos)
         {
-            line.erase(pos, _s1.length());
-            line.insert(pos, _s2);
+            if (_s1 != "")//if not empty
+            {
+                line.erase(pos, _s1.length());
+                line.insert(pos, _s2);
+            }
             pos += _s2.length();
         }
         outfile << line;

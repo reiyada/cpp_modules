@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:17:20 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/19 09:10:58 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/21 15:51:43 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 HumanB::HumanB(std::string name):_name(name)
 {
-
+    this->_weapon = NULL;
 }
 
 HumanB::~HumanB()

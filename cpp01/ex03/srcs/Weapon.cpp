@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:17:26 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/19 08:51:37 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/21 16:11:07 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ Weapon::~Weapon()
     
 }
 
-std::string Weapon::getType()
+std::string Weapon::getType() const
 {
-    return _type;
+    return this->_type;
 }
 
 void Weapon::setType(std::string newType)
