@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:38:06 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/21 17:48:28 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/22 14:14:20 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,17 @@ public:
 
     void        incGrade();
     void        decGrade();
+
+    class GradeTooHighException: public std::exception
+    {
+    public:
+        const char* what() const throw();//override
+    };
+    class GradeTooLowException: public std::exception
+    {
+    public:
+        const char* what() const throw();//override
+    };
 };
 
 #endif
