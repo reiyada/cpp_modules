@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 14:27:18 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/22 16:57:16 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/25 17:42:23 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main() {
     Bureaucrat* test2 = new Bureaucrat("Test2", 145);
 
     title("Copy construction");
-    Bureaucrat* clone(rei);
+    Bureaucrat* clone = new Bureaucrat(*rei);
     //why it does not print anything??
 
     title("Grade increase");
@@ -76,5 +76,6 @@ int main() {
     delete rei;
     delete test1;
     delete test2;
+    delete clone;
     return 0;
 }

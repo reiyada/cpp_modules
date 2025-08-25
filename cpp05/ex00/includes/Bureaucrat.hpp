@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:38:06 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/22 14:14:20 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/25 17:30:26 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ public:
         const char* what() const throw();//override
     };
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
 
 #endif
