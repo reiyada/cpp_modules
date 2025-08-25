@@ -6,12 +6,15 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 10:50:49 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/13 11:06:23 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/25 14:31:39 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Point.hpp"
 
+// positive: counter-clockwise rotation => "left turn"
+// negative: clockwise => "right turn"
+// zero: vectors are aligned (on the same line) => edge case
 Fixed areaSign(Point const& a, Point const& b, Point const& c)
 {
     Fixed ab_x = b.getX() - a.getX();
@@ -29,16 +32,16 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
     Fixed areaBC = areaSign(point, b, c);
     Fixed areaCA = areaSign(point, c, a);
 
-    if (areaAB == 0 || areaBC == 0 || areaCA == 0)//edge case
+    if (areaAB == Fixed(0) || areaBC == Fixed(0) || areaCA == Fixed(0))//edge case
         return false;
 
-    bool posi = (areaAB > 0 || areaBC > 0 || areaCA > 0);
-    bool nega = (areaAB < 0 || areaBC < 0 || areaCA < 0);
+    bool posi = (areaAB > Fixed(0) || areaBC > Fixed(0) || areaCA > Fixed(0));
+    bool nega = (areaAB < Fixed(0) || areaBC < Fixed(0) || areaCA < Fixed(0));
     
-    if ((posi && nega) || (!posi && !nega))//if all area are positive or all are negative => inside
-        return true;
-    else
-        return false;
+    //if all area are positive or all are negative => inside
+    //if signs are mized => outside
+    //if signs are the same => inside
+    return !(posi && nega);
 }
 
 

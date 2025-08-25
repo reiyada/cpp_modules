@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:18:28 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/13 11:16:24 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/25 14:33:16 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int main() {
 
     std::cout << "Point (1, 1) is inside triangle?: " << (bsp(a, b, c, p1) ? "Yes" : "No") << std::endl;
     std::cout << "Point (5, 1) is inside triangle?: " << (bsp(a, b, c, p2) ? "Yes" : "No") << std::endl;
+    //edge case => must be NO
     std::cout << "Point (2, 0) is inside triangle?: " << (bsp(a, b, c, p3) ? "Yes" : "No") << std::endl;
 
     return 0;
