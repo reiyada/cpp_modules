@@ -46,21 +46,22 @@ Fixed &Fixed::operator=(const Fixed &ori)
 {
     // std::cout << "Copy assignment operator called" << std::endl;
     if (this != &ori)
-        this->_rawBits = ori.getRawBits();
+        this->_rawBits = ori._rawBits;
     return *this;
 }
 
 bool Fixed::operator>(const Fixed &other)const
 {
-    if (this->getRawBits() > other.getRawBits())
+    if (this->_rawBits > other._rawBits)
         return true;
     else
         return false;
+    //this is same for return this->_rawBits > other._rawBits
 }
 
 bool Fixed::operator<(const Fixed &other)const
 {
-    if (this->getRawBits() < other.getRawBits())
+    if (this->_rawBits < other._rawBits)
         return true;
     else
         return false;
@@ -68,7 +69,7 @@ bool Fixed::operator<(const Fixed &other)const
 
 bool Fixed::operator>=(const Fixed &other)const
 {
-    if (this->getRawBits() >= other.getRawBits())
+    if (this->_rawBits >= other._rawBits)
         return true;
     else
         return false;
@@ -76,7 +77,7 @@ bool Fixed::operator>=(const Fixed &other)const
 
 bool Fixed::operator<=(const Fixed &other)const
 {
-    if (this->getRawBits() <= other.getRawBits())
+    if (this->_rawBits <= other._rawBits)
         return true;
     else
         return false;
@@ -84,7 +85,7 @@ bool Fixed::operator<=(const Fixed &other)const
 
 bool Fixed::operator==(const Fixed& other)const
 {
-    if (this->getRawBits() == other.getRawBits())
+    if (this->_rawBits == other._rawBits)
         return true;
     else
         return false;
@@ -92,7 +93,7 @@ bool Fixed::operator==(const Fixed& other)const
 
 bool Fixed::operator!=(const Fixed& other)const
 {
-    if (this->getRawBits() != other.getRawBits())
+    if (this->_rawBits != other._rawBits)
         return true;
     else
         return false;
@@ -136,15 +137,15 @@ Fixed& Fixed::operator--()
 
 Fixed Fixed::operator++(int)
 {
-    Fixed temp = *this;
-    _rawBits++;
-    return temp;
+    Fixed temp = *this;//save the old value
+    this->_rawBits++;//increment object
+    return temp;//return old value
 }
 
 Fixed Fixed::operator--(int)
 {
     Fixed temp = *this;
-    _rawBits--;
+    this->_rawBits--;
     return temp;
 }
 
@@ -187,7 +188,6 @@ const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
 
 int Fixed::getRawBits(void) const
 {
-    // std::cout << "getRawBits member function called" << std::endl;
     return this->_rawBits;
 }
 

@@ -20,18 +20,23 @@ Fixed::Fixed() : _value(0)
 
 //A special constructor used
 //when a new object is created as a copy of an existing object
-Fixed::Fixed(const Fixed &other)
+Fixed::Fixed(const Fixed& other)
 {
     std::cout << "Copy constructor called" << std::endl;
     *this = other;
 }
 
-Fixed &Fixed::operator=(const Fixed &ori)
+Fixed& Fixed::operator=(const Fixed& ori)
 {
     std::cout << "Copy assignment operator called" << std::endl;
     if (this != &ori)
         this->_value = ori.getRawBits();
     return *this;
+}
+
+Fixed::~Fixed()
+{
+    std::cout << "Destructor called" <<std::endl;
 }
 
 int Fixed::getRawBits(void) const
@@ -45,7 +50,4 @@ void Fixed::setRawBits(int const raw)
     this->_value = raw;
 }
 
-Fixed::~Fixed()
-{
-    std::cout << "Destructor called" <<std::endl;
-}
+

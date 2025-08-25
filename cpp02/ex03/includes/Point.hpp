@@ -24,7 +24,7 @@ private:
 
 public:
     Point();
-    Point(const float a, const float b);
+    Point(const float xValue, const float yValue);
     Point(Point& other);
     Point& operator=(const Point& ori);
     ~Point();

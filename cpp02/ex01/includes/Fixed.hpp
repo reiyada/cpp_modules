@@ -13,7 +13,7 @@
 #ifndef Fixed_HPP
 #define Fixed_HPP
 
-#include <string>
+#include <iostream>
 
 class Fixed
 {
@@ -23,10 +23,10 @@ private:
 
 public:
     Fixed();
-    Fixed(const Fixed &other);
+    Fixed(const Fixed& other);
     Fixed(const int value);
     Fixed(const float value);
-    Fixed &operator=(const Fixed &ori);
+    Fixed& operator=(const Fixed& other);
     ~Fixed();
 
     int getRawBits(void) const;

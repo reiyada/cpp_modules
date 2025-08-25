@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/Fixed.hpp"
-#include <iostream>
 
 int main( void ) {
 
@@ -30,4 +29,34 @@ int main( void ) {
 
     return 0;
 }
+
+// //test min and max
+// int main() {
+//     //when both arguments are non-const, we call non-const overload
+//     Fixed a;
+//     Fixed b;
+//     Fixed& r1 = Fixed::min(a, b);
+
+//     //If any argument is const, we call const overload
+//     const Fixed c;
+//     Fixed d;
+//     const Fixed& r2 = Fixed::max(c, d);
+
+//     //if any argument is a temporary, we call the const overload
+//     Fixed e;
+//     Fixed r3 = Fixed::min(e, Fixed(2));
+
+//     //Both arguments are const, we call const
+//     const Fixed f;
+//     const Fixed g;
+//     const Fixed& r4 = Fixed::max(f, g);
+
+//     (void)r1;
+//     (void)r2;
+//     (void)r3;
+//     (void)r4;
+
+//     return 0;
+// }
+
 

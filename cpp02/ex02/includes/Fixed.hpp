@@ -13,7 +13,7 @@
 #ifndef Fixed_HPP
 #define Fixed_HPP
 
-#include <string>
+#include <iostream>
 
 class Fixed
 {
@@ -26,7 +26,6 @@ public:
     Fixed(const Fixed& other);
     Fixed(const int value);
     Fixed(const float value);
-
     ~Fixed();
 
     Fixed& operator=(const Fixed& ori);
@@ -36,10 +35,12 @@ public:
     bool operator<=(const Fixed& other)const;
     bool operator==(const Fixed& other)const;
     bool operator!=(const Fixed& other)const;
+
     Fixed operator+(const Fixed& other)const;
     Fixed operator-(const Fixed& other)const;
     Fixed operator*(const Fixed& other)const;
     Fixed operator/(const Fixed& other)const;
+
     Fixed& operator++();
     Fixed& operator--();
     Fixed operator++(int);//post
@@ -49,7 +50,7 @@ public:
     static const Fixed& min(const Fixed& a, const Fixed& b);
     static Fixed& max(Fixed& a, Fixed& b);
     static const Fixed& max(const Fixed& a, const Fixed& b);
-//If both arguments are non-const lvalues → the non-const overload.
+//If both arguments are non-const values → the non-const overload.
 //If either argument is const (or something that can’t bind to non-const, like a temporary) → the const overload.
 
     int getRawBits(void) const;
