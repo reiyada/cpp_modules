@@ -6,11 +6,12 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:46:19 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/25 17:36:44 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/26 17:28:04 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
+#include "../includes/Form.hpp"
 #include "../includes/define.hpp"
 #include <iostream>
 
@@ -54,6 +55,7 @@ std::string Bureaucrat::getName() const {
     return this->_name;
 }
 
+
 int Bureaucrat::getGrade() const {
     return this->_grade;
 }
@@ -91,3 +93,14 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
     return os;
 }
 
+
+
+void Bureaucrat::signForm(Form& f) {
+    f.beSigned(*this);
+    if (f.getSigned()) {
+        std::cout << this->_name << " signed " << f.getName() << std::endl;
+    }
+    else {
+        std::cout << this->_name << " couldn't sign " << f.getName() << " because " << f.getReason() << std::endl;
+    }
+}

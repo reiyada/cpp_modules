@@ -6,14 +6,17 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:38:06 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/25 17:30:26 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/26 16:51:48 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+#include "Form.hpp"
 #include <string>
+
+class Form;
 
 class Bureaucrat
 {
@@ -32,6 +35,8 @@ public:
 
     void        incGrade();
     void        decGrade();
+
+    void        signForm(Form& f);
 
     class GradeTooHighException: public std::exception
     {

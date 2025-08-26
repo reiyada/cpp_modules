@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 14:27:18 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/25 17:42:23 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/26 16:37:16 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int main() {
 
     title("Copy construction");
     Bureaucrat* clone = new Bureaucrat(*rei);
-    //why it does not print anything??
 
     title("Grade increase");
     std::cout << B_CYAN << "Bureaucrat* rei " << RESET;
