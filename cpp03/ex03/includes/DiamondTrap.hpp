@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 14:50:24 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/16 12:00:25 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/30 09:02:30 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ private:
     std::string _name;
 
 public:
+    DiamondTrap(void);//for canonical form
     DiamondTrap(std::string newName);
     explicit DiamondTrap(const DiamondTrap& other);
     DiamondTrap& operator=(const DiamondTrap& other);

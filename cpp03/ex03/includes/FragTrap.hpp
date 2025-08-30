@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 14:50:24 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/16 12:00:52 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/30 09:02:49 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class FragTrap: virtual public ClapTrap
 {
 public:
+    FragTrap(void);//for canonical form
     FragTrap(std::string newName);
     FragTrap(const FragTrap& other);
     FragTrap& operator=(const FragTrap& other);

@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 11:44:24 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/16 11:14:43 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/30 09:02:16 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ protected://not reachable from the outside of the class but reachable from its c
     int         _attackDamage;
 
 public:
+    ClapTrap(void);//for canonical form
     ClapTrap(std::string newName);
     ClapTrap(const ClapTrap& other);
     ClapTrap& operator=(const ClapTrap& other);

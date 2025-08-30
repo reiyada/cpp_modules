@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 14:50:24 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/16 12:12:33 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/30 11:00:41 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,17 @@
 
 class FragTrap: public ClapTrap
 {
+private:
+    std::string getType() const;
+
 public:
+    FragTrap(void);//for canonical form
     FragTrap(std::string newName);
     FragTrap(const FragTrap& other);
     FragTrap& operator=(const FragTrap& other);
     ~FragTrap();
 
-    void        attack(const std::string& target);
+    // void        attack(const std::string& target);
 
     void highFivesGuys(void);
 };

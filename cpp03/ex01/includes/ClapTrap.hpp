@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 11:44:24 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/16 11:16:20 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/30 10:21:30 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ protected://not reachable from the outside of the class but reachable from its c
     int         _energyPoints;
     int         _attackDamage;
 
+    virtual std::string getType() const;//for bool noEnergy
+
 public:
+    ClapTrap(void);//for canonical form
     ClapTrap(std::string newName);
     ClapTrap(const ClapTrap& other);
     ClapTrap& operator=(const ClapTrap& other);
@@ -32,11 +35,6 @@ public:
     void        attack(const std::string& target);
     void        takeDamage(unsigned int amount);
     void        beRepaired(unsigned int amount);
-
-    std::string getName();
-    int         getHitPoints();
-    int         getEnergyPoints();
-    int         getAttackPoints();
 
     bool        noEnergy();
 };

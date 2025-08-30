@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 13:34:37 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/16 11:26:10 by ryada            ###   ########.fr       */
+/*   Updated: 2025/08/30 10:22:43 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 
 static void separator(const std::string& title) {
-    std::cout << B_YELLOW <<std::endl << "========== " << title << " ==========" << RESET << std::endl;
+    std::cout << B_YELLOW <<std::endl << "============================== " << title << " ==============================" << RESET << std::endl;
 }
 
 int main()
@@ -29,17 +29,19 @@ int main()
     c1.attack("training dummy 01");//ClapTrap message
     s1.attack("training dummy 02");//ScavTrap message (overridden)
 
-    separator("Guard Gate special ability");
+    separator("Guard Gate");
     s1.guardGate();
 
-    separator("Damage & repair logic");
+    separator("Damage & repair");
     s1.takeDamage(30);//expect HP to drop
     s1.beRepaired(20);//expect HP to rise
 
-    separator("Energy depletion test");
-    for (int i = 0; i < 51; ++i)
-    {
+    separator("No energy");
+    for (int i = 0; i < 51; i++) {
         s1.attack("training dummy 03");
+    }
+    for (int i = 0; i < 10; i++) {
+        c1.attack("training dummy 04");
     }
 
     separator("Copy Scavy into a new ScavTrap");
