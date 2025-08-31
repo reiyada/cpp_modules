@@ -14,6 +14,13 @@
 #include "../includes/define.hpp"
 #include <iostream>
 
+FragTrap::FragTrap() : ClapTrap() {
+    std::cout << B_BLUE << "FragTrap default constructor has been called" << RESET << "---> " << _name << std::endl;
+    _hitPoints = 100;
+    _energyPoints = 100;
+    _attackDamage = 30;
+}
+
 FragTrap::FragTrap(std::string newName): ClapTrap(newName) {
     std::cout << B_BLUE << "FragTrap constructor has been called" << RESET << "---> " << _name << std::endl;
     _hitPoints = 100;
@@ -22,7 +29,7 @@ FragTrap::FragTrap(std::string newName): ClapTrap(newName) {
 };
 
 FragTrap::FragTrap(const FragTrap& other): ClapTrap(other) {
-    std::cout << B_BLUE << "FragTrap (copy) constructor has been called" << RESET << "----->" << this->getName() << std::endl;
+    std::cout << B_BLUE << "FragTrap (copy) constructor has been called" << RESET << "----->" << this->_name << std::endl;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& other)
@@ -31,7 +38,7 @@ FragTrap& FragTrap::operator=(const FragTrap& other)
     {
         ClapTrap::operator=(other);
     }
-    std::cout << B_BLUE << "FragTrap assined" << RESET << "----->" << this->getName() << std::endl;
+    std::cout << B_BLUE << "FragTrap assined" << RESET << "----->" << this->_name << std::endl;
     return *this;
 }
 
@@ -41,7 +48,12 @@ std::cout << B_BLUE << "FragTrap destructor has been called" << RESET << "---> "
 
 void FragTrap::highFivesGuys()
 {
-    std::cout << B_BLUE << "ClapTrap " << RESET
-                << "<" << this->getName() <<  "> "
-                << "is giving a high five!!" << std::endl;
+    std::cout << B_BLUE << "FrapTrap " << RESET
+                << this->_name
+                << " is giving a high five!!" << std::endl;
 }
+
+std::string FragTrap::getType() const
+{
+    return "FragTrap";
+} 

@@ -18,6 +18,9 @@
 
 class FragTrap: virtual public ClapTrap
 {
+private:
+    std::string getType() const;
+
 public:
     FragTrap(void);//for canonical form
     FragTrap(std::string newName);
@@ -32,9 +35,9 @@ public:
 
 //it needs to be like this;
 //       ClapTrap
-//        /    \
+//        |    |
 //  ScavTrap  FragTrap
-//        \    /
+//        |    |
 //     DiamondTrap
 
 //but without virtual, both Scav and Frag inherit their own separate copy of clap

@@ -18,7 +18,7 @@
 #include <iostream>
 
 static void separator(const std::string& title) {
-    std::cout << B_YELLOW <<std::endl << "========== " << title << " ==========" << RESET << std::endl;
+    std::cout << B_YELLOW <<std::endl << "============================== " << title << " ==============================" << RESET << std::endl;
 }
 
 int main()

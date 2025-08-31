@@ -18,14 +18,15 @@
 
 class ScavTrap: virtual public ClapTrap
 {
+private:
+    std::string getType() const;
+
 public:
     ScavTrap(void);//for canonical form
     ScavTrap(std::string newName);
     ScavTrap(const ScavTrap& other);
     ScavTrap& operator=(const ScavTrap& other);
     ~ScavTrap();
-
-    void        attack(const std::string& target);
 
     void        guardGate();
 };
@@ -34,9 +35,9 @@ public:
 
 //it needs to be like this;
 //       ClapTrap
-//        /    \
+//        |    |
 //  ScavTrap  FragTrap
-//        \    /
+//        |    |
 //     DiamondTrap
 
 //but without virtual, both Scav and Frag inherit their own separate copy of clap

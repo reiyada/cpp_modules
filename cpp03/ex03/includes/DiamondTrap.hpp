@@ -22,6 +22,7 @@ class DiamondTrap: public ScavTrap, public FragTrap
 {
 private:
     std::string _name;
+    std::string getType() const;
 
 public:
     DiamondTrap(void);//for canonical form
@@ -39,9 +40,9 @@ public:
 
 //it needs to be like this;
 //       ClapTrap
-//        /    \
+//        |    |
 //  ScavTrap  FragTrap
-//        \    /
+//        |    |
 //     DiamondTrap
 
 //but without virtual, both Scav and Frag inherit their own separate copy of clap

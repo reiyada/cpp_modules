@@ -23,6 +23,9 @@ protected://not reachable from the outside of the class but reachable from its c
     int         _energyPoints;
     int         _attackDamage;
 
+    virtual std::string getType() const;
+    std::string getColor() const;
+
 public:
     ClapTrap(void);//for canonical form
     ClapTrap(std::string newName);
@@ -33,11 +36,6 @@ public:
     void        attack(const std::string& target);
     void        takeDamage(unsigned int amount);
     void        beRepaired(unsigned int amount);
-
-    std::string getName();
-    int         getHitPoints();
-    int         getEnergyPoints();
-    int         getAttackPoints();
 
     bool        noEnergy();
 };

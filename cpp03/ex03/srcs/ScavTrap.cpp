@@ -14,6 +14,13 @@
 #include "../includes/define.hpp"
 #include <iostream>
 
+ScavTrap::ScavTrap(): ClapTrap() {
+    std::cout << B_MAGENTA << "ScavTrap default constructor has been called" << RESET << "---> " << _name << std::endl;
+    _hitPoints = 100;
+    _energyPoints = 50;
+    _attackDamage = 20;
+}
+
 ScavTrap::ScavTrap(std::string newName): ClapTrap(newName) {
     std::cout << B_MAGENTA << "ScavTrap constructor has been called" << RESET << "---> " << _name << std::endl;
     _hitPoints = 100;
@@ -22,7 +29,7 @@ ScavTrap::ScavTrap(std::string newName): ClapTrap(newName) {
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other) {
-    std::cout << B_GREEN << "ScavTrap (copy) constructor has been called" << RESET << "----->" << this->getName() << std::endl;
+    std::cout << B_MAGENTA << "ScavTrap (copy) constructor has been called" << RESET << "----->" << this->_name << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
@@ -31,7 +38,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
     {
         ClapTrap::operator=(other);
     }
-    std::cout << B_GREEN << "ScavTrap assined" << RESET << "----->" << this->getName() << std::endl;
+    std::cout << B_MAGENTA << "ScavTrap assined" << RESET << "----->" << this->_name << std::endl;
     return *this;
 }
 
@@ -39,28 +46,14 @@ ScavTrap::~ScavTrap(){
 std::cout << B_MAGENTA << "ScavTrap destructor has been called" << RESET << "---> " << _name << std::endl;
 }
 
-void    ScavTrap::attack(const std::string& target)
-{
-    if (this->noEnergy())
-        return;
-    this->_energyPoints--;
-
-    std::cout << B_MAGENTA << "ScavTrap " << RESET
-                << "<" << this->getName() <<  "> "
-                << "attacks "
-                << "<" << target << ">, "
-                << "causing "
-                << "<" << this->getAttackPoints() << "> "
-                << "points of damage, now it has "
-                << "<" << this->getHitPoints() << "> "
-                << "hit points and "
-                << "<" << this->getEnergyPoints() << "> "
-                << "energy points! " << std::endl;
-}
-
 void    ScavTrap::guardGate()
 {
     std::cout << B_MAGENTA << "ScaTrap " << RESET
-                << "<" << this->getName() <<  "> "
-                << "is now on Gate keeper mode!" << std::endl;
+                << this->_name
+                << " is now on Gate keeper mode!" << std::endl;
+}
+
+std::string ScavTrap::getType() const
+{
+    return "ScavTrap";
 }
