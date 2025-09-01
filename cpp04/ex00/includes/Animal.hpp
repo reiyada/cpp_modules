@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 13:58:46 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/16 15:03:03 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/01 08:52:20 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ public:
 #endif
 
 
-///Polymorphism-> object-oriented programming (OOP) that
-// allows objects of different classes to be treated as
-// objects of a common base class
+//Polymorphism-> object-oriented programming (OOP) that
+//allows objects of different classes to be treated as
+//objects of a common base class

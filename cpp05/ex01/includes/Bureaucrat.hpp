@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:38:06 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/26 16:51:48 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/01 10:43:49 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ private:
     int                 _grade;//1 --> highest; 150 --> lowest
 
 public:
+    Bureaucrat();
     Bureaucrat(const std::string newName, int startGrade);
     Bureaucrat(const Bureaucrat& other);
     Bureaucrat& operator=(const Bureaucrat& other);

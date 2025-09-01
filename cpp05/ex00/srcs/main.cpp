@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 14:27:18 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/26 16:37:16 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/01 09:13:40 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <iostream>
 
 void title(std::string title) {
-    std::cout << B_YELLOW << "<<<<<<<<<<<<<<<<<<<<" << title << ">>>>>>>>>>>>>>>>>>>>" << std::endl;
+    std::cout << B_YELLOW << "<<<<<<<<<<<<<<<<<<<< " << title << " >>>>>>>>>>>>>>>>>>>>" << std::endl;
 }
 
 int main() {
@@ -26,6 +26,9 @@ int main() {
 
     title("Copy construction");
     Bureaucrat* clone = new Bureaucrat(*rei);
+
+    title("Default construction");
+    Bureaucrat* noName = new Bureaucrat();
 
     title("Grade increase");
     std::cout << B_CYAN << "Bureaucrat* rei " << RESET;
@@ -76,5 +79,6 @@ int main() {
     delete test1;
     delete test2;
     delete clone;
+    delete noName;
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:46:19 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/26 17:28:04 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/01 10:43:59 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 #include "../includes/Form.hpp"
 #include "../includes/define.hpp"
 #include <iostream>
+
+Bureaucrat::Bureaucrat(): _name("no_name"), _grade(150) {
+    std::cout << B_CYAN << "[ Bureaucrat default constractor has been called ]" << RESET << std::endl;
+    std::cout << *this;
+}
 
 Bureaucrat::Bureaucrat(std::string newName, int startGrade): _name(newName), _grade(startGrade) {
     //check if you initialize the valid grade
@@ -23,14 +28,12 @@ Bureaucrat::Bureaucrat(std::string newName, int startGrade): _name(newName), _gr
         throw GradeTooLowException();
 
     std::cout << B_CYAN << "[ Bureaucrat constractor has been called ]" << RESET << std::endl;
-    std::cout << "Name: " << this->getName() << std::endl
-                << "Grade: " << this->getGrade() << std::endl;
+    std::cout << *this;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other): _name(other._name), _grade(other._grade) {
     std::cout << B_CYAN << "[ Bureaucrat constractor(copy) has been called ]" << RESET << std::endl;
-    std::cout << "Name: " << this->getName() << std::endl
-                << "Grade: " << this->getGrade() << std::endl;
+    std::cout << *this;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
@@ -39,22 +42,19 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
         //_name is const so we cannot set the same as other
     }
     std::cout << B_CYAN << "[ Bureaucrat operator has been assigned ]" << RESET << std::endl;
-    std::cout << "Name: " << this->getName() << std::endl
-                << "Grade: " << this->getGrade() << std::endl;
+    std::cout << *this;
     return *this;
 }
 
 Bureaucrat::~Bureaucrat() {
     std::cout << B_CYAN << "[ Bureaucrat destructor has been called ]" << RESET << std::endl;
-    std::cout << "Name: " << this->getName() << std::endl
-                << "Grade: " << this->getGrade() << std::endl;
+    std::cout << *this;
 }
 
 
 std::string Bureaucrat::getName() const {
     return this->_name;
 }
-
 
 int Bureaucrat::getGrade() const {
     return this->_grade;
@@ -65,9 +65,8 @@ void Bureaucrat::incGrade() {
     if (this->_grade <= 1)
         throw GradeTooHighException();
     this->_grade--;
-    std::cout << B_CYAN << "[ Bureaucrat grade has been increesed ]" << RESET << std::endl;
-    std::cout << "Name: " << this->getName() << std::endl
-                << "Grade: " << this->getGrade() + 1 << " ---> " << YELLOW << this->getGrade() << RESET << std::endl;
+    std::cout << B_CYAN << "[ Bureaucrat grade has been increased ]" << RESET << std::endl;
+    std::cout << *this;
 }
 
 void Bureaucrat::decGrade() {
@@ -75,9 +74,8 @@ void Bureaucrat::decGrade() {
     if (this->_grade >= 150)
         throw GradeTooLowException();
     this->_grade++;
-    std::cout << B_CYAN << "[ Bureaucrat grade has been decreesed ]" << RESET << std::endl;
-    std::cout << "Name: " << this->getName() << std::endl
-                << "Grade: " << this->getGrade() - 1 << " ---> " << BLUE << this->getGrade() << RESET << std::endl;
+    std::cout << B_CYAN << "[ Bureaucrat grade has been decreased ]" << RESET << std::endl;
+    std::cout << *this;
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
@@ -89,18 +87,14 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
-    os << b.getName() << ", bureaucrat grade" << b.getGrade() << std::endl;
+    os << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl;
     return os;
 }
-
 
 
 void Bureaucrat::signForm(Form& f) {
     f.beSigned(*this);
     if (f.getSigned()) {
         std::cout << this->_name << " signed " << f.getName() << std::endl;
-    }
-    else {
-        std::cout << this->_name << " couldn't sign " << f.getName() << " because " << f.getReason() << std::endl;
     }
 }
