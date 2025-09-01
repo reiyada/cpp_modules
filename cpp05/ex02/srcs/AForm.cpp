@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Form.hpp"
+#include "../includes/AForm.hpp"
 #include "../includes/Bureaucrat.hpp"
 #include "../includes/define.hpp"
 #include <iostream>
 
-Form::Form(): _name("no_name"), _gradeSign(150), _gradeExec(150){
-    std::cout << B_GREEN << "[ Form default constractor has been called ]" << RESET << std::endl;
+AForm::AForm(): _name("no_name"), _gradeSign(150), _gradeExec(150){
+    std::cout << B_GREEN << "[ AForm default constractor has been called ]" << RESET << std::endl;
     std::cout << *this;
 }
 
-Form::Form(std::string newName,  int gradeSign, int gradeExec):_name(newName), _signed(false),
+AForm::AForm(std::string newName,  int gradeSign, int gradeExec):_name(newName), _signed(false),
                                                                 _gradeSign(gradeSign), _gradeExec(gradeExec) {
     if (gradeSign < 1 || gradeExec < 1) {
         throw GradeTooHighException();
@@ -28,51 +28,51 @@ Form::Form(std::string newName,  int gradeSign, int gradeExec):_name(newName), _
     else if (gradeSign > 150 || gradeExec > 150) {
         throw GradeTooLowException();
     }
-    std::cout << B_GREEN << "[ Form constractor has been called ]" << RESET << std::endl;
+    std::cout << B_GREEN << "[ AForm constractor has been called ]" << RESET << std::endl;
     std::cout << *this;
 }
 
-Form::Form(const Form& other): _name(other._name), _gradeSign(other._gradeSign), _gradeExec(other._gradeExec) {
+AForm::AForm(const AForm& other): _name(other._name), _gradeSign(other._gradeSign), _gradeExec(other._gradeExec) {
     *this = other;//initialize bool _signed
 
-    std::cout << B_GREEN << "[ Form constractor(copy) has been called ]" << RESET << std::endl;
+    std::cout << B_GREEN << "[ AForm constractor(copy) has been called ]" << RESET << std::endl;
     std::cout << *this;
 }
 
-Form& Form::operator=(const Form& other) {
+AForm& AForm::operator=(const AForm& other) {
     if (this != &other) {
         this->_signed = other._signed;
     }
 
-    std::cout << B_GREEN << "[ Form operator has been assigned ]" << RESET << std::endl;
+    std::cout << B_GREEN << "[ AForm operator has been assigned ]" << RESET << std::endl;
     std::cout << *this;
     //_name, _gradeSign, _gradeExec are const -> they are initialized already with the constructor
     return *this;
 }
 
-Form::~Form() {
-    std::cout << B_GREEN << "[ Form destructor has been called ]" << RESET << std::endl;
+AForm::~AForm() {
+    std::cout << B_GREEN << "[ AForm destructor has been called ]" << RESET << std::endl;
     std::cout << *this; 
 }
 
 
-std::string Form::getName() const {
+std::string AForm::getName() const {
     return this->_name;
 }
 
-bool    Form::getSigned() const {
+bool    AForm::getSigned() const {
     return this->_signed;
 }
 
-int Form::getGradeSign() const {
+int AForm::getGradeSign() const {
     return this->_gradeSign;
 }
 
-int Form::getGradeExec() const {
+int AForm::getGradeExec() const {
     return this->_gradeExec;
 }
 
-void    Form::beSigned(const Bureaucrat& b) {
+void    AForm::beSigned(const Bureaucrat& b) {
     //change bool _signed if the Bureaucrat's grade is higher than _gradeSign
     if (b.getGrade() <= this->_gradeSign)
         this->_signed = true;
@@ -81,16 +81,16 @@ void    Form::beSigned(const Bureaucrat& b) {
     }
 }
 
-const char* Form::GradeTooHighException::what() const throw() {
-    return "Form grade is too high!";
+const char* AForm::GradeTooHighException::what() const throw() {
+    return "AForm grade is too high!";
 }
 
-const char* Form::GradeTooLowException::what() const throw() {
-    return "Form grade is too low!";
+const char* AForm::GradeTooLowException::what() const throw() {
+    return "AForm grade is too low!";
 }
 
 
-std::ostream& operator<<(std::ostream& os, const Form& f) {
+std::ostream& operator<<(std::ostream& os, const AForm& f) {
     os << "Name: "<<  f.getName() << std::endl
         << "Grade to sign: " << f.getGradeSign() << std::endl
         << "Grade to execute: " << f.getGradeExec() << std::endl;
