@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 13:34:37 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/30 10:50:14 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/01 08:17:47 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ static void separator(const std::string& title) {
 int main()
 {
     separator("Construction order");
-    // ClapTrap test1 = ClapTrap();
-    // ScavTrap test2 = ScavTrap();
-    // FragTrap test3 = FragTrap();
     ClapTrap c1("Clappy");
     ScavTrap s1("Scavy");
     FragTrap f1("Frappy");
