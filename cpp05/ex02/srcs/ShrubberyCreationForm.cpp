@@ -6,13 +6,14 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 14:33:35 by ryada             #+#    #+#             */
-/*   Updated: 2025/09/02 15:37:27 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/02 16:42:34 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ShrubberyCreationForm.hpp"
 #include "../includes/define.hpp"
 #include <iostream>
+#include <fstream>
 #include <string>
 
 ShrubberyCreationForm::ShrubberyCreationForm(): AForm("no_name", 145, 137), _target("no_target") {
@@ -49,6 +50,16 @@ std::string ShrubberyCreationForm::getTarget() const {
     return this->_target;
 }
 
+void    ShrubberyCreationForm::execute(const Bureaucrat& executor) {
+    if (this->checkExec(executor)) {
+        std::string filename = this->_target + "_shrubbery";
+        std::ofstream outfile((filename).c_str());
+        if (!outfile) {
+            std::cerr << B_RED << "ERROR: cannot open outfile."
+        }
+    }
+}
+
 std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& s) {
     os << "ShrubberyCreationForm Name: "<<  s.getName() << std::endl
         << "Grade to sign: " << s.getGradeSign() << std::endl
@@ -56,3 +67,4 @@ std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& s) {
         << "Target: " << s.getTarget() << std::endl;
     return os;
 }
+

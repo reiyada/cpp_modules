@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 15:32:26 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/25 17:55:18 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/02 16:53:15 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ bool    newContactConfirm(PhoneBook phoneBook)
     {
         std::cout << "\033[32m(YES/NO): \033[0m";
         std::getline(std::cin, yn);
+        if (!checkEmpty(yn))
+            continue;
         if (yn == "YES")
         {
             std::cout << "\033[32mThe new contact has been successfully added to your Phone Book!\033[0m" << std::endl << std::endl;
@@ -93,6 +95,8 @@ int exitPhoneBook()
     {
         std::cout << "\033[32mAre you sure to exit your phone book? (YES/NO):\033[0m";
         std::getline(std::cin, input);
+        if (!checkEmpty(input))
+            continue;
         if (input == "YES")
         {
             std::cout << "\033[32mThank you for using the phone book! We reset the data.\033[0m" << std::endl;

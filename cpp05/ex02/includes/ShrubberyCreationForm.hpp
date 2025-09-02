@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:10:24 by ryada             #+#    #+#             */
-/*   Updated: 2025/09/02 15:26:09 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/02 16:32:50 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ public:
     ~ShrubberyCreationForm();
 
     std::string getTarget() const;
+
+    void execute(const Bureaucrat& executor);
 };
 
 std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& s);
