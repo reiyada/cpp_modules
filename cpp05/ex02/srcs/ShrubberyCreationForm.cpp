@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 14:33:35 by ryada             #+#    #+#             */
-/*   Updated: 2025/09/02 16:42:34 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/02 17:02:00 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void    ShrubberyCreationForm::execute(const Bureaucrat& executor) {
         std::string filename = this->_target + "_shrubbery";
         std::ofstream outfile((filename).c_str());
         if (!outfile) {
-            std::cerr << B_RED << "ERROR: cannot open outfile."
+            std::cerr << B_RED << "ERROR: cannot open outfile." << RESET << std::
         }
     }
 }
