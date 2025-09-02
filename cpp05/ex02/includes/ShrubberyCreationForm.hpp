@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:10:24 by ryada             #+#    #+#             */
-/*   Updated: 2025/09/01 15:11:57 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/02 15:26:09 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,19 @@
 
 class ShrubberyCreationForm: public AForm
 {
+private:
+    std::string _target;
 
+public:
+    ShrubberyCreationForm();
+    ShrubberyCreationForm(std::string newTarget, std::string newName);
+    ShrubberyCreationForm(const ShrubberyCreationForm& other);
+    ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
+    ~ShrubberyCreationForm();
+
+    std::string getTarget() const;
 };
+
+std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& s);
 
 #endif

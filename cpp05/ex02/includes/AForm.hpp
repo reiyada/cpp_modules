@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:02:34 by ryada             #+#    #+#             */
-/*   Updated: 2025/09/01 15:02:37 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/02 15:31:35 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ private:
     bool                _signed;
     const int           _gradeSign;
     const int           _gradeExec;
+
+protected:
+    bool checkExec(const Bureaucrat& executor) const;
 
 public:
     AForm();
