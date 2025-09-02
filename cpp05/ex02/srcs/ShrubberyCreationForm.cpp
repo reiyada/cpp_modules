@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 14:33:35 by ryada             #+#    #+#             */
-/*   Updated: 2025/09/02 17:02:00 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/02 17:27:43 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,24 @@ void    ShrubberyCreationForm::execute(const Bureaucrat& executor) {
         std::string filename = this->_target + "_shrubbery";
         std::ofstream outfile((filename).c_str());
         if (!outfile) {
-            std::cerr << B_RED << "ERROR: cannot open outfile." << RESET << std::
+            std::cerr << B_RED << "ERROR: cannot open outfile." << RESET << std::endl;
+            return ;
         }
+        outfile << 
+                "     ^      " << std::endl <<
+                "    ^^^     " << std::endl <<
+                "   ^^^^^    " << std::endl <<
+                "  ^^^^^^^   " << std::endl <<
+                " ^^^^^^^^^  " << std::endl <<
+                "    |||     ";
+        std::cout << B_MAGENTA << "[ ShrubberyCreationForm < " << this->getName() << " > has created the outfile. ]" << RESET << std::endl;
     }
 }
 
 std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& s) {
     os << "ShrubberyCreationForm Name: "<<  s.getName() << std::endl
-        << "Grade to sign: " << s.getGradeSign() << std::endl
-        << "Grade to execute: " << s.getGradeExec() << std::endl
+        // << "Grade to sign: " << s.getGradeSign() << std::endl
+        // << "Grade to execute: " << s.getGradeExec() << std::endl
         << "Target: " << s.getTarget() << std::endl;
     return os;
 }

@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 14:27:18 by ryada             #+#    #+#             */
-/*   Updated: 2025/09/02 15:19:12 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/02 17:30:20 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,26 @@ void title(std::string title) {
 
 int main() {
     title("Construction");
-    ShrubberyCreationForm* sForm1 = new ShrubberyCreationForm("file1", "sForm1", 10, 20);
+    Bureaucrat* b1 = new Bureaucrat("b1", 10);
+    ShrubberyCreationForm* sForm1 = new ShrubberyCreationForm("file1", "sForm1");
+    ShrubberyCreationForm* sForm2 = new ShrubberyCreationForm("file2", "sForm2");
 
-    title("Construction with invalid grades");
-    try
-    {
-        ShrubberyCreationForm* sForm2 = new ShrubberyCreationForm("file2", "sForm2", 0, 140);
-        delete sForm2;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << B_RED << e.what() << RESET << '\n';
-    }
-    
+    title("Sign sForm1 with good grade");
+    b1->signForm(*sForm1);
+    std::cout << "Has " << sForm1->getName() << " been signed?: ";
+    (sForm1->getSigned() == true) ? (std::cout << "Yes"): (std::cout << "No");
+    std::cout << std::endl;
+
+    title("Execute sForm1");
+    sForm1->execute(*b1);
+
+    title("Execute sForm2 without signing");
+    sForm2->execute(*b1);
 
     title("Destruction");
+    delete b1;
     delete sForm1;
+    delete sForm2;
     return 0;
 }
 
