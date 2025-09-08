@@ -66,9 +66,9 @@ int main()
     copy.use(1, *bob);
 
     title("Cleanup");
-    delete bob;
-    delete me;
     delete src;
+    delete me;
+    delete bob;
 }
 
 // int main()

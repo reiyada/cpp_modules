@@ -61,7 +61,7 @@ std::string const& Character::getName() const {
 
 void Character::equip(AMateria* m) {
     if (!m)
-        return ;
+        throw std::bad_alloc() ;
 
     for (int i = 0; i < 4; i++) {
         if (this->_inventory[i] == m)
@@ -78,7 +78,7 @@ void Character::equip(AMateria* m) {
 
 void Character::unequip(int idx) {
     if (idx < 0 || idx > 3)
-        return ;
+        return ;//use throw
     this->_inventory[idx] = NULL; 
 }
 

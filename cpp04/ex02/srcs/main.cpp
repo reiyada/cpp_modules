@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Animal.hpp"
+#include "../includes/AAnimal.hpp"
 #include "../includes/Dog.hpp"
 #include "../includes/Cat.hpp"
 #include "../includes/Brain.hpp"
@@ -25,22 +25,23 @@ void    title(std::string title) {
 
 int main()
 {
+    // AAnimal *test = new AAnimal;
     title("Calling makeSound() from child classes");
-    Animal* a1 = new Dog();
+    AAnimal* a1 = new Dog();
     a1->makeSound();
-    Animal* a2 = new Cat();
+    AAnimal* a2 = new Cat();
     a2->makeSound();
 
     title("Calling makeSound() by using reference");
-    Animal* a3 = new Dog();
-    Animal& ref = *a3;
+    AAnimal* a3 = new Dog();
+    AAnimal& ref = *a3;
     ref.makeSound();
 
-    title("Calling makeSound() from WrongAnimal and WrongCat");
+    title("Calling makeSound() from WrongAAnimal and WrongCat");
     WrongAnimal* a4 = new WrongCat();
     a4->makeSound();
     WrongAnimal a5;
-    a5.makeSound();//this works for wrong animal bc it is just a virtual function
+    a5.makeSound();//this works for wrong Aanimal bc it is just a virtual function
 
     title("Destruction");
     delete a1;

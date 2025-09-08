@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,19 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Animal.hpp"
+#include "../includes/AAnimal.hpp"
 #include "../includes/define.hpp"
 #include <iostream>
 
-Animal::Animal(): _type("Animal") {
+AAnimal::AAnimal(): _type("AAnimal") {
     std::cout << B_GREEN << "Aimal constructor has been called" << RESET << std::endl;
 }
 
-Animal::Animal(const Animal& other): _type(other._type) {
+AAnimal::AAnimal(const AAnimal& other): _type(other._type) {
     std::cout << B_GREEN << "Aimal constructor(copy) has been called" << RESET << std::endl;
 }
 
-Animal& Animal::operator=(const Animal& other) {
+AAnimal& AAnimal::operator=(const AAnimal& other) {
     if (this != &other) {
         this->_type = other._type;
     }
@@ -30,15 +30,15 @@ Animal& Animal::operator=(const Animal& other) {
     return *this;
 }
 
-Animal::~Animal() {
+AAnimal::~AAnimal() {
     std::cout << B_GREEN << "Aimal destructor has been called" << RESET << std::endl;
     std::cout << std::endl;
 }
 
-void Animal::makeSound() const{
-    std::cout << B_GREEN << "Animal noise" << RESET << std::endl;
+void AAnimal::makeSound() const{
+    std::cout << B_GREEN << "AAnimal noise" << RESET << std::endl;
 }
 
-const std::string& Animal::getType() const {
+const std::string& AAnimal::getType() const {
     return _type;
 }

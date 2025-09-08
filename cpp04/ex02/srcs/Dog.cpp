@@ -14,20 +14,20 @@
 #include "../includes/define.hpp"
 #include <iostream>
 
-Dog::Dog(): Animal() {
+Dog::Dog(): AAnimal() {
     _type = "Dog";
     this->_brain = new Brain;
     std::cout << B_BLUE << "Dog constructor has been called" << RESET << std::endl;
 }
 
-Dog::Dog(const Dog& other): Animal(other) {
+Dog::Dog(const Dog& other): AAnimal(other) {
     this->_brain = new Brain(*other._brain);
     std::cout << B_BLUE << "Dog constructor(copy) has been called" << RESET << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& other) {
     if (this != &other) {
-        Animal::operator=(other);
+        AAnimal::operator=(other);
         if (this->_brain)
             delete this->_brain;
         this->_brain = new Brain(*other._brain);

@@ -25,7 +25,7 @@ void    title(std::string title) {
 
 int main()
 {
-    title("Brain test");
+    title("Array test");
     Animal* animals[10];
     for (int i = 0; i < 10; i++) {
         if (i < 5)
