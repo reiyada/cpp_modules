@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 14:33:35 by ryada             #+#    #+#             */
-/*   Updated: 2025/09/02 17:27:43 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/22 09:20:12 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ std::string ShrubberyCreationForm::getTarget() const {
 
 void    ShrubberyCreationForm::execute(const Bureaucrat& executor) {
     if (this->checkExec(executor)) {
+        executor.executeForm(*this);
         std::string filename = this->_target + "_shrubbery";
         std::ofstream outfile((filename).c_str());
         if (!outfile) {
@@ -65,14 +66,14 @@ void    ShrubberyCreationForm::execute(const Bureaucrat& executor) {
                 "  ^^^^^^^   " << std::endl <<
                 " ^^^^^^^^^  " << std::endl <<
                 "    |||     ";
-        std::cout << B_MAGENTA << "[ ShrubberyCreationForm < " << this->getName() << " > has created the outfile. ]" << RESET << std::endl;
+        std::cout << B_MAGENTA << "ShrubberyCreationForm: " << this->getName() << " has created the outfile." << RESET << std::endl;
     }
 }
 
 std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& s) {
     os << "ShrubberyCreationForm Name: "<<  s.getName() << std::endl
-        // << "Grade to sign: " << s.getGradeSign() << std::endl
-        // << "Grade to execute: " << s.getGradeExec() << std::endl
+        << "Grade to sign: 145" << std::endl
+        << "Grade to execute: 137" << std::endl
         << "Target: " << s.getTarget() << std::endl;
     return os;
 }

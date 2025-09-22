@@ -6,13 +6,14 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 14:27:18 by ryada             #+#    #+#             */
-/*   Updated: 2025/09/02 17:30:20 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/22 09:31:37 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
 #include "../includes/AForm.hpp"
 #include "../includes/ShrubberyCreationForm.hpp"
+#include "../includes/RobotomyRequestForm.hpp"
 #include "../includes/define.hpp"
 #include <iostream>
 
@@ -23,8 +24,11 @@ void title(std::string title) {
 int main() {
     title("Construction");
     Bureaucrat* b1 = new Bureaucrat("b1", 10);
-    ShrubberyCreationForm* sForm1 = new ShrubberyCreationForm("file1", "sForm1");
-    ShrubberyCreationForm* sForm2 = new ShrubberyCreationForm("file2", "sForm2");
+    Bureaucrat* b2 = new Bureaucrat("b2", 147);
+    ShrubberyCreationForm* sForm1 = new ShrubberyCreationForm("sTarget1", "sForm1");
+    ShrubberyCreationForm* sForm2 = new ShrubberyCreationForm("sTarget2", "sForm2");
+    RobotomyRequestForm* rForm1 = new RobotomyRequestForm("rTarget1", "rForm1");
+    RobotomyRequestForm* rForm2 = new RobotomyRequestForm("rTarget2", "rForm2");
 
     title("Sign sForm1 with good grade");
     b1->signForm(*sForm1);
@@ -32,16 +36,27 @@ int main() {
     (sForm1->getSigned() == true) ? (std::cout << "Yes"): (std::cout << "No");
     std::cout << std::endl;
 
+    title("Try to sign sForm1 with low grade");
+    b2->signForm(*sForm1);
+    std::cout << "Has " << sForm1->getName() << " been signed?: ";
+    (sForm2->getSigned() == true) ? (std::cout << "Yes"): (std::cout << "No");
+    std::cout << std::endl;
+
     title("Execute sForm1");
     sForm1->execute(*b1);
+    b1->executeForm(*sForm1);
 
     title("Execute sForm2 without signing");
     sForm2->execute(*b1);
+    b1->executeForm(*sForm2);
 
     title("Destruction");
     delete b1;
+    delete b2;
     delete sForm1;
     delete sForm2;
+    delete rForm1;
+    delete rForm2;
     return 0;
 }
 

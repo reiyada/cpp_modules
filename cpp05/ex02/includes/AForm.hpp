@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:02:34 by ryada             #+#    #+#             */
-/*   Updated: 2025/09/02 15:31:35 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/22 09:15:57 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ private:
     const int           _gradeSign;
     const int           _gradeExec;
 
-protected:
-    bool checkExec(const Bureaucrat& executor) const;
-
 public:
     AForm();
     AForm(std::string newName, int gradeSign, int gradeExec);
@@ -42,6 +39,7 @@ public:
     int                 getGradeExec() const;
 
     void                beSigned(const Bureaucrat& b);
+    bool                checkExec(const Bureaucrat& executor) const;
 
     class GradeTooHighException: public std::exception
     {

@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:38:06 by ryada             #+#    #+#             */
-/*   Updated: 2025/09/01 15:04:12 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/22 09:12:46 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ public:
     void        decGrade();
 
     void        signForm(AForm& f);
+    void        executeForm(AForm const & form) const;
 
     class GradeTooHighException: public std::exception
     {
