@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 13:01:41 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/19 16:14:02 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/20 12:08:55 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ private:
     AMateria*   _inventory[4];
 
 public:
+    Character();
     Character(std::string const& name);
     Character(const Character& other);
     Character& operator=(const Character& other);

@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 13:38:17 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/19 16:19:44 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/20 12:17:44 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class IMateriaSource
 {
 public:
-    IMateriaSource() {}
     virtual ~IMateriaSource() {}
 
     virtual void learnMateria(AMateria* ptr) = 0;

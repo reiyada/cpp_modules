@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 15:55:49 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/21 17:16:11 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/15 09:58:53 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void    title(std::string title) {
 
 int main()
 {
-    title("Create and Learn Materias");
+    title("Create and Learn Materias (try to learn more than 4 materials)");
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
@@ -41,18 +41,18 @@ int main()
     me->equip(tmp);
     tmp = src->createMateria("cure");
     me->equip(tmp);
-    tmp = src->createMateria("unknown");
-    if (!tmp) std::cout << "Tried to create unknown materia: failed \n";
+    tmp = src->createMateria("unknown");//returns NULL
+    if (!tmp) std::cout << B_RED << "Tried to create unknown materia: failed \n" << RESET;
 
     title("Create another Character");
-    ICharacter* bob = new Character("bob");
+    ICharacter* target = new Character("target");
 
     title("Use equipped materias");
-    me->use(0, *bob);
-    me->use(1, *bob);
-    me->use(2, *bob);
-    me->use(-1, *bob);
-    me->use(42, *bob);
+    me->use(0, *target);
+    me->use(1, *target);
+    me->use(2, *target);//not equiped in the index 2
+    me->use(-1, *target);//invalid index
+    me->use(42, *target);//invalid index
 
     title("Unequip and manage raw pointer");
     AMateria* toKeep = src->createMateria("cure");
@@ -61,14 +61,18 @@ int main()
     delete toKeep;
 
     title("Copy character deeply");
-    Character copy = *(dynamic_cast<Character*>(me));
-    copy.use(0, *bob);
-    copy.use(1, *bob);
+    Character copy = *(dynamic_cast<Character*>(me));//a cast operator that converts data from one type to another type at runtime
+    copy.use(0, *target);
+    copy.use(1, *target);
 
     title("Cleanup");
+    std::cout << "----- delete src -----" << std::endl;
     delete src;
+    std::cout << "----- delete me -----" << std::endl;
     delete me;
-    delete bob;
+    std::cout << "----- delete target -----" << std::endl;
+    delete target;
+    std::cout << "----- delete copy(me) -----" <<std::endl;
 }
 
 // int main()
@@ -86,11 +90,11 @@ int main()
 //     tmp = src->createMateria("cure");
 //     me->equip(tmp);
 
-//     ICharacter* bob = new Character("bob");
-//     me->use(0, *bob);
-//     me->use(1, *bob);
+//     ICharacter* target = new Character("target");
+//     me->use(0, *target);
+//     me->use(1, *target);
 
-//     delete bob;
+//     delete target;
 //     delete me;
 //     delete src;
 

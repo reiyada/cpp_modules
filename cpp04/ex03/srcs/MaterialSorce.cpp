@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 13:48:49 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/21 17:19:39 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/15 09:48:09 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,5 @@ AMateria* MateriaSource::createMateria(std::string const& type) {
         if (this->_storage[i] && this->_storage[i]->getType() == type)
             return this->_storage[i]->clone();
     }
-    return 0;
+    return NULL;
 }

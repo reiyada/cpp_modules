@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 11:11:49 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/19 16:11:32 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/20 12:16:50 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class AMateria;
 class ICharacter
 {
 public:
-    ICharacter() {};
     virtual ~ICharacter() {};
 
     virtual std::string const& getName() const = 0;

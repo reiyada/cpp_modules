@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 10:29:09 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/19 16:19:35 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/20 12:07:35 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ protected:
     std::string _type;
 
 public:
+    AMateria();
     AMateria(std::string const& type);
     AMateria(const AMateria& other);
     AMateria& operator=(const AMateria& other);

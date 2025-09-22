@@ -6,13 +6,23 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/19 13:10:53 by ryada             #+#    #+#             */
-/*   Updated: 2025/08/19 16:27:23 by ryada            ###   ########.fr       */
+/*   Updated: 2025/09/20 12:10:32 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Character.hpp"
+#include "../includes/define.hpp"
+#include <iostream>
+
+Character::Character(): _name("unknown name") {
+    std::cout << B_MAGENTA << "[DEFAULT] Creating a new Character named " << this->_name << std::endl << RESET;
+    for (int i = 0; i < 4; i++) {
+        this->_inventory[i] = NULL;
+    }
+}
 
 Character::Character(std::string const& name): _name(name) {
+    std::cout << B_MAGENTA << "Creating a new Character named " << this->_name << std::endl << RESET;
     for (int i = 0; i < 4; i++) {
         this->_inventory[i] = NULL;
     }
@@ -52,6 +62,7 @@ Character::~Character() {
         if (this->_inventory[i]) 
             delete this->_inventory[i];
     }
+    std::cout << B_MAGENTA << "Destroying a Character named " << this->_name << std::endl << RESET;
 }
 
 
@@ -70,7 +81,7 @@ void Character::equip(AMateria* m) {
 
     for (int i = 0; i < 4; i++) {
         if (this->_inventory[i] == NULL) {
-            this->_inventory[i] = m->clone();
+            this->_inventory[i] = m;
             return ;
         }
     }
