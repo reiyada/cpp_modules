@@ -104,7 +104,7 @@ bool AForm::checkExec(const Bureaucrat& executor) const {
         return false;
     }   
     if (executor.getGrade() > this->getGradeExec()) {
-        throw GradeTooLowException();
+        throw GradeTooHighException();
         return false;
     }
     return true;

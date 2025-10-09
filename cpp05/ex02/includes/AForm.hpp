@@ -31,7 +31,7 @@ public:
     AForm(std::string newName, int gradeSign, int gradeExec);
     AForm(const AForm& other);
     AForm& operator=(const AForm&other);
-    ~AForm();
+    virtual ~AForm();
 
     std::string         getName() const;
     bool                getSigned() const;
@@ -51,6 +51,8 @@ public:
     public:
         const char* what() const throw();//override
     };
+
+    virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& f);

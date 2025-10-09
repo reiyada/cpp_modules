@@ -14,51 +14,104 @@
 #include "../includes/AForm.hpp"
 #include "../includes/ShrubberyCreationForm.hpp"
 #include "../includes/RobotomyRequestForm.hpp"
+#include "../includes/PresidentialPardonForm.hpp"
 #include "../includes/define.hpp"
+#include <exception>
 #include <iostream>
 
 void title(std::string title) {
     std::cout << B_YELLOW << "<<<<<<<<<<<<<<<<<<<< " << title << " >>>>>>>>>>>>>>>>>>>>" << RESET << std::endl;
 }
 
+//SH: 145 to sign, 137 to exec
+//ROB: 72 to sign, 45 to exec
+//PRE: 25 to sign, 5 to exec
 int main() {
-    title("Construction");
-    Bureaucrat* b1 = new Bureaucrat("b1", 10);
-    Bureaucrat* b2 = new Bureaucrat("b2", 147);
-    ShrubberyCreationForm* sForm1 = new ShrubberyCreationForm("sTarget1", "sForm1");
-    ShrubberyCreationForm* sForm2 = new ShrubberyCreationForm("sTarget2", "sForm2");
-    RobotomyRequestForm* rForm1 = new RobotomyRequestForm("rTarget1", "rForm1");
-    RobotomyRequestForm* rForm2 = new RobotomyRequestForm("rTarget2", "rForm2");
+    try {
+        title("Bureaucrat Construction");
+        Bureaucrat* bureauGood = new Bureaucrat("bureauGood", 3);
+        Bureaucrat* bureauBad = new Bureaucrat("bureauBad", 70);
 
-    title("Sign sForm1 with good grade");
-    b1->signForm(*sForm1);
-    std::cout << "Has " << sForm1->getName() << " been signed?: ";
-    (sForm1->getSigned() == true) ? (std::cout << "Yes"): (std::cout << "No");
-    std::cout << std::endl;
+        title("Form Construction");
+        ShrubberyCreationForm* sForm = new ShrubberyCreationForm("sTarget", "sForm");
+        RobotomyRequestForm* rForm = new RobotomyRequestForm("rTarget", "rFrom");
+        PresidentialPardonForm* pForm = new PresidentialPardonForm("pTarget", "pForm");
 
-    title("Try to sign sForm1 with low grade");
-    b2->signForm(*sForm1);
-    std::cout << "Has " << sForm1->getName() << " been signed?: ";
-    (sForm2->getSigned() == true) ? (std::cout << "Yes"): (std::cout << "No");
-    std::cout << std::endl;
+        title("bureauGood try to sign Forms");//all good
+        bureauGood->signForm(*sForm);
+        bureauGood->signForm(*rForm);
+        bureauGood->signForm(*pForm);
 
-    title("Execute sForm1");
-    sForm1->execute(*b1);
-    b1->executeForm(*sForm1);
+        title("bureauBad try to sign Forms");
+        bureauBad->signForm(*sForm);//good
+        bureauBad->signForm(*rForm);//good
+        bureauBad->signForm(*pForm);//bad
 
-    title("Execute sForm2 without signing");
-    sForm2->execute(*b1);
-    b1->executeForm(*sForm2);
+        title("bureauGood try to execute");//all good
+        bureauGood->executeForm(*sForm);
+        bureauGood->executeForm(*rForm);
+        bureauGood->executeForm(*pForm);
 
-    title("Destruction");
-    delete b1;
-    delete b2;
-    delete sForm1;
-    delete sForm2;
-    delete rForm1;
-    delete rForm2;
+        title("bureauBad try to execute");
+        bureauBad->executeForm(*sForm);//good
+        bureauBad->executeForm(*rForm);//bad
+        bureauBad->executeForm(*pForm);//bad
+
+        title("Destruction");
+        delete bureauGood;
+        delete bureauBad;
+        delete sForm;
+        delete rForm;
+        delete pForm;
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << std::endl;
+        return 1;
+    }
     return 0;
 }
+
+// int main() {
+//     title("Construction");
+//     Bureaucrat* b1 = new Bureaucrat("b1", 10);
+//     Bureaucrat* b2 = new Bureaucrat("b2", 147);
+//     ShrubberyCreationForm* sForm1 = new ShrubberyCreationForm("sTarget1", "sForm1");
+//     ShrubberyCreationForm* sForm2 = new ShrubberyCreationForm("sTarget2", "sForm2");
+//     RobotomyRequestForm* rForm1 = new RobotomyRequestForm("rTarget1", "rForm1");
+//     RobotomyRequestForm* rForm2 = new RobotomyRequestForm("rTarget2", "rForm2");
+//     PresidentialPardonForm* pForm1 = new PresidentialPardonForm("pTarget1", "pForm1");
+//     PresidentialPardonForm* pForm2 = new PresidentialPardonForm("pTarget2", "pForm2");
+
+//     title("Sign sForm1 with good grade");
+//     b1->signForm(*sForm1);
+//     std::cout << "Has " << sForm1->getName() << " been signed?: ";
+//     (sForm1->getSigned() == true) ? (std::cout << "Yes"): (std::cout << "No");
+//     std::cout << std::endl;
+
+//     title("Try to sign sForm1 with low grade");
+//     b2->signForm(*sForm1);
+//     std::cout << "Has " << sForm1->getName() << " been signed?: ";
+//     (sForm2->getSigned() == true) ? (std::cout << "Yes"): (std::cout << "No");
+//     std::cout << std::endl;
+
+//     title("Execute sForm1");
+//     sForm1->execute(*b1);
+//     b1->executeForm(*sForm1);
+
+//     title("Execute sForm2 without signing");
+//     sForm2->execute(*b1);
+//     b1->executeForm(*sForm2);
+
+//     title("Destruction");
+//     delete b1;
+//     delete b2;
+//     delete sForm1;
+//     delete sForm2;
+//     delete rForm1;
+//     delete rForm2;
+//     delete pForm1;
+//     delete pForm2;
+//     return 0;
+// }
 
 // int main() {
 //     title("Construction");

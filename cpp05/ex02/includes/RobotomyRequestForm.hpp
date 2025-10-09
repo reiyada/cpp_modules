@@ -29,10 +29,10 @@ public:
 
     std::string getTarget() const;
 
-    void makeNoise();
-    void inform();
+    void makeNoise() const;
+    void inform() const;
 
-    void execute(const Bureaucrat& executor);
+    void execute(const Bureaucrat& executor) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const RobotomyRequestForm& s);

@@ -50,7 +50,7 @@ std::string ShrubberyCreationForm::getTarget() const {
     return this->_target;
 }
 
-void    ShrubberyCreationForm::execute(const Bureaucrat& executor) {
+void    ShrubberyCreationForm::execute(const Bureaucrat& executor) const{
     if (this->checkExec(executor)) {
         executor.executeForm(*this);
         std::string filename = this->_target + "_shrubbery";

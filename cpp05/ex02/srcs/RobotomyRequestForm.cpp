@@ -51,12 +51,12 @@ std::string RobotomyRequestForm::getTarget() const {
     return this->_target;
 }
 
-void RobotomyRequestForm::makeNoise() {
+void RobotomyRequestForm::makeNoise() const{
     std::cout << B_LIME << "RobotomyRequestForm: " << this->getName() << " is making noise..." << std::endl
                 << RESET << "BZZZZZZZZZZZZZT... VRRRRRRRRRRRR... DRRRRRRRRR" << std::endl;
 }
 
-void RobotomyRequestForm::inform() {
+void RobotomyRequestForm::inform() const{
     if (rand() % 2) {
         std::cout << B_LIME << "RobotomyRequestForm: " << this->getTarget() << RESET
                     << "has been robotomized successfully." << std::endl;
@@ -67,7 +67,7 @@ void RobotomyRequestForm::inform() {
     }
 }
 
-void RobotomyRequestForm::execute(const Bureaucrat& executor) {
+void RobotomyRequestForm::execute(const Bureaucrat& executor) const{
     if (this->checkExec(executor)) {
         executor.executeForm(*this);
         this->makeNoise();
