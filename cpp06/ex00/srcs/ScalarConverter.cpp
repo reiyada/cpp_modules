@@ -98,9 +98,9 @@ static float toFloat(std::string const input) {
 
     //pseudo literals
     if (input == "-inff" || input == "-inf")
-        return -std::numeric_limits<float>::infinity();
+        return -std::numeric_limits<float>::infinity();//-∞
     if (input == "+inff" || input == "+inf")
-        return std::numeric_limits<float>::infinity();
+        return std::numeric_limits<float>::infinity();//+∞
     if (input == "nanf" || input == "nan")
         return std::numeric_limits<float>::quiet_NaN();
 
