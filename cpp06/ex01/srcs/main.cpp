@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ScalarConverter.hpp"
+#include "../includes/Serializer.hpp"
 #include "../includes/define.hpp"
 #include <iostream>
 
@@ -18,11 +18,25 @@ void title(std::string title) {
     std::cout << B_YELLOW << "<<<<<<<<<<<<<<<<<<<< " << title << " >>>>>>>>>>>>>>>>>>>>" << std::endl;
 }
 
-int main(int argc, char **argv) {
-    if (argc != 2) {
-        std::cerr << B_RED << "wrong argument: ./ex00 input" << RESET << std::endl;
-        return 1;
-    }
-    ScalarConverter::convert(argv[1]);
+void printData(const Data& data) {
+    std::cout << B_MAGENTA << "[NAME] " << RESET << data.name << std::endl;
+    std::cout << B_MAGENTA << "[AGE] " << RESET << data.age << std::endl;
+}
+
+int main() {
+    title("Data init");
+    Data data;
+    data.name = "Rei";
+    data.age = 26;
+    printData(data);
+
+    title("Try serialize()");
+    uintptr_t rawAdr = Serializer::serialize(&data);
+    std::cout << B_MAGENTA << "[Raw Address] " << RESET << rawAdr << std::endl;
+
+    title("Try deserialize()");
+    Data* ptr = Serializer::deserialize(rawAdr);
+    std::cout << B_MAGENTA << "[Pointer] " << RESET << ptr << std::endl;
+
     return 0;
 }
