@@ -10,19 +10,18 @@
 #                                                                              #
 # **************************************************************************** #
 
-# ---------------------------------------------------------------------------- #
-#                                 Configuration                                #
-# ---------------------------------------------------------------------------- #
 NAME      = ex01
 CXX       = c++
-CXXFLAGS  = -Wall -Wextra -Werror -std=c++98 -g -o -I$(INC_DIR)
+CXXFLAGS  = -Wall -Wextra -Werror -std=c++98 -g -I$(INC_DIR)
 
 SRC_DIR   = srcs
 INC_DIR   = includes
 OBJ_DIR   = obj
 
-SRCS      = $(wildcard $(SRC_DIR)/*.cpp)
-OBJS      = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRCS))
+SRCS      = srcs/main.cpp \
+			srcs/Serializer.cpp
+
+OBJS      = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 # ---------------------------------------------------------------------------- #
 #                                     Color                                    #

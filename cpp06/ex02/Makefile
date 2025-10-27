@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ryada <ryada@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/08/05 17:18:35 by ryada             #+#    #+#              #
-#    Updated: 2025/08/06 09:55:33 by ryada            ###   ########.fr        #
+#    Created: 2025/10/27 14:34:46 by ryada             #+#    #+#              #
+#    Updated: 2025/10/27 15:02:49 by ryada            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME      = ex00
+NAME      = ex02
 CXX       = c++
 CXXFLAGS  = -Wall -Wextra -Werror -std=c++98 -g -I$(INC_DIR)
 
@@ -19,7 +19,7 @@ INC_DIR   = includes
 OBJ_DIR   = obj
 
 SRCS      = srcs/main.cpp \
-			srcs/ScalarConverter.cpp
+			srcs/Identifyer.cpp
 
 OBJS      = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
