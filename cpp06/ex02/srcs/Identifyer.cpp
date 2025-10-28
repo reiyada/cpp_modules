@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:46:25 by ryada             #+#    #+#             */
-/*   Updated: 2025/10/27 15:39:34 by ryada            ###   ########.fr       */
+/*   Updated: 2025/10/28 15:55:49 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
 Base* generate(void) {
     Base* result = NULL;
     int randomNum = rand();
-    std::cout << B_MAGENTA << "DEBUG randomNUm: " << randomNum << RESET << std::endl;
+    if (DEBUG_MODE)
+        std::cout << B_MAGENTA << "DEBUG randomNUm: " << randomNum << RESET << std::endl;
     if (randomNum % 3 == 0) {
         result = new C;
         std::cout << B_BLUE << "Instantiates C" << RESET << std::endl;
@@ -36,10 +37,29 @@ Base* generate(void) {
     return result;
 }
 
-// void identify(Base* p) {
-    
-// }
+void identify(Base* p) {
+    if (dynamic_cast<A*>(p))//same as (A*)p in C
+        std::cout << B_BLUE << "Class type A" << RESET << std::endl;
+    else if (dynamic_cast<B*>(p))
+        std::cout << B_BLUE << "Class type B" << RESET << std::endl;
+    else if (dynamic_cast<C*>(p))
+        std::cout << B_BLUE << "Class type C" << RESET << std::endl;
+}
 
-// void identify(Base& p) {
-    
-// }
+void identify(Base& p) {
+    try {
+        (void)dynamic_cast<A&>(p);
+        std::cout << B_BLUE << "Class type A" << RESET << std::endl;
+        return;
+    } catch (std::exception& e) {}
+    try {
+        (void)dynamic_cast<B&>(p);
+        std::cout << B_BLUE << "Class type B" << RESET << std::endl;
+        return;
+    } catch (std::exception& e) {}
+    try {
+        (void)dynamic_cast<C&>(p);
+        std::cout << B_BLUE << "Class type C" << RESET << std::endl;
+        return;
+    } catch (std::exception& e) {}
+}
