@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/22 14:27:18 by ryada             #+#    #+#             */
-/*   Updated: 2025/09/22 09:31:37 by ryada            ###   ########.fr       */
+/*   Updated: 2025/10/29 13:36:08 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,35 @@ void title(std::string title) {
 // "presidential pardon"
 
 int main() {
+    try {
     title("Construction");
-    AForm* result1;
-    AForm* result2;
-    AForm* result3;
-    AForm* result4;
-    Intern intern1;
-    Intern intern2;
-    Intern intern3;
-    Intern intern4;
+    Intern intern;
+    Bureaucrat boss("Boss", 1);
+    Bureaucrat lowGuy("InternSupport", 150);
 
-    title("Making forms");
-    result1 = intern1.makeForm("shrubbery creation", "SHHHH");
-    result2 = intern2.makeForm("robotom request", "ROOOO");
-    result3 = intern3.makeForm("presidential pardon", "PRRRRR");
+    title("Intern creates forms");
+    AForm* sForm = intern.makeForm("shrubbery creation", "Home");
+    AForm* rForm = intern.makeForm("robotomy request", "Bender");
+    AForm* pForm = intern.makeForm("presidential pardon", "Ford Prefect");
+    AForm* invalid = intern.makeForm("nonsense form", "Nowhere");
 
-    title("Try to make invalid form");
-    result4 = intern4.makeForm("hahahaha creation","LOOOOL");
+    title("Signing forms");
+    boss.signForm(*sForm);
+    boss.signForm(*rForm);
+    boss.signForm(*pForm);
 
+    title("Executing forms");
+    boss.executeForm(*sForm);
+    boss.executeForm(*rForm);
+    boss.executeForm(*pForm);
+    
     title("Destruction");
-    delete result1;
-    delete result2;
-    delete result3;
-    delete result4;
+    delete invalid;
+    delete sForm;
+    delete rForm;
+    delete pForm;
+    } catch (std::exception& e) {
+        std::cerr << B_RED << "Exception: " << e.what() << RESET << std::endl;
+    }
+    return 0;
 }

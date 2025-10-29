@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/21 17:46:19 by ryada             #+#    #+#             */
-/*   Updated: 2025/09/22 09:34:33 by ryada            ###   ########.fr       */
+/*   Updated: 2025/10/29 13:29:13 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,8 @@ void Bureaucrat::signForm(AForm& f) {
 void Bureaucrat::executeForm(AForm const & form) const {
     try
     {
-        if (form.checkExec(*this))
-            std::cout << B_CYAN << "Bureaucrat: " << this->_name << " executed " << form.getName() << std::endl;
+        form.execute(*this);
+        std::cout << B_CYAN << "Bureaucrat: " << this->_name << " executed " << form.getName() << std::endl;
     }
     catch (std::exception& e)
     {

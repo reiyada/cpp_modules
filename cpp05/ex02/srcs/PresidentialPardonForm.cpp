@@ -56,10 +56,8 @@ void PresidentialPardonForm::inform() const{
 }
 
 void PresidentialPardonForm::execute(const Bureaucrat& executor) const{
-    if (this->checkExec(executor)) {
-        executor.executeForm(*this);
-        this->inform();
-    }
+    this->checkExec(executor);
+    this->inform();
 }
 
 std::ostream& operator<<(std::ostream& os, const PresidentialPardonForm& s) {

@@ -5,15 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ryada <ryada@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/08/05 17:18:35 by ryada             #+#    #+#              #
-#    Updated: 2025/10/29 12:35:58 by ryada            ###   ########.fr        #
+#    Created: 2025/10/29 11:17:22 by ryada             #+#    #+#              #
+#    Updated: 2025/10/29 12:34:47 by ryada            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# ---------------------------------------------------------------------------- #
-#                                 Configuration                                #
-# ---------------------------------------------------------------------------- #
-NAME      = ex01
+NAME      = ex02
 CXX       = c++
 CXXFLAGS  = -Wall -Wextra -Werror -std=c++98 -g -I$(INC_DIR)
 
@@ -22,8 +19,6 @@ INC_DIR   = includes
 OBJ_DIR   = obj
 
 SRCS      = srcs/main.cpp \
-			srcs/Bureaucrat.cpp \
-			srcs/Form.cpp
 
 OBJS      = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 

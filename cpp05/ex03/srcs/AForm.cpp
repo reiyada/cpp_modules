@@ -100,12 +100,10 @@ std::ostream& operator<<(std::ostream& os, const AForm& f) {
 
 bool AForm::checkExec(const Bureaucrat& executor) const {
     if (!this->getSigned()) {
-        std::cerr << B_RED << "The form " << this->getName() << " has not been signed!" << RESET << std::endl;
-        return false;
+        throw std::runtime_error("Form is not signed");
     }   
     if (executor.getGrade() > this->getGradeExec()) {
         throw GradeTooHighException();
-        return false;
     }
     return true;
 }

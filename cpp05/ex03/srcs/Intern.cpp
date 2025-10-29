@@ -5,6 +5,17 @@ Intern::Intern(){
     std::cout << B_BLUE << "[ Intern default constractor has been called ]" << RESET << std::endl;
 }
 
+Intern::Intern(const Intern& other) {
+    std::cout << B_BLUE << "[ Intern constractor(copy) has been called ]" << RESET << std::endl;
+    (void)other;
+}
+
+Intern& Intern::operator=(const Intern& other) {
+    std::cout << B_BLUE << "[ Intern operator has been assigned ]" << RESET << std::endl;
+    (void)other;
+    return *this;
+}
+
 Intern::~Intern(){
     std::cout << B_BLUE << "[ Intern default destructor has been called ]" << RESET << std::endl;
 }
@@ -13,7 +24,7 @@ Intern::~Intern(){
 AForm* Intern::makeForm(std::string const formName, std::string const formTarget) {
     std::string names[3]= {
         "shrubbery creation",
-        "robotom request",
+        "robotomy request",
         "presidential pardon"
     };
     AForm* forms[3] = {

@@ -6,7 +6,7 @@
 /*   By: ryada <ryada@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 08:42:05 by ryada             #+#    #+#             */
-/*   Updated: 2025/09/22 09:28:57 by ryada            ###   ########.fr       */
+/*   Updated: 2025/10/29 13:14:44 by ryada            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,21 +58,19 @@ void RobotomyRequestForm::makeNoise() const{
 
 void RobotomyRequestForm::inform() const{
     if (rand() % 2) {
-        std::cout << B_LIME << "RobotomyRequestForm: " << this->getTarget() << RESET
+        std::cout << B_LIME << "RobotomyRequestForm: " << this->getTarget()
                     << "has been robotomized successfully." << std::endl;
     }
     else {
-        std::cout << B_LIME << "RobotomyRequestForm: " << this->getTarget() << RESET
+        std::cout << B_LIME << "RobotomyRequestForm: " << this->getTarget()
                     << "has failed to get robotomized." << std::endl;
     }
 }
 
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const{
-    if (this->checkExec(executor)) {
-        executor.executeForm(*this);
-        this->makeNoise();
-        this->inform();
-    }
+    this->checkExec(executor);
+    this->makeNoise();
+    this->inform();
 }
 
 std::ostream& operator<<(std::ostream& os, const RobotomyRequestForm& s) {

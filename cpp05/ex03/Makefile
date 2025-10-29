@@ -6,23 +6,27 @@
 #    By: ryada <ryada@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/05 17:18:35 by ryada             #+#    #+#              #
-#    Updated: 2025/09/02 15:05:03 by ryada            ###   ########.fr        #
+#    Updated: 2025/10/29 12:38:36 by ryada            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# ---------------------------------------------------------------------------- #
-#                                 Configuration                                #
-# ---------------------------------------------------------------------------- #
 NAME      = ex03
 CXX       = c++
-CXXFLAGS  = -Wall -Wextra -Werror -std=c++98 -g -o -I$(INC_DIR)
+CXXFLAGS  = -Wall -Wextra -Werror -std=c++98 -g -I$(INC_DIR)
 
 SRC_DIR   = srcs
 INC_DIR   = includes
 OBJ_DIR   = obj
 
-SRCS      = $(wildcard $(SRC_DIR)/*.cpp)
-OBJS      = $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRCS))
+SRCS      = srcs/main.cpp \
+			srcs/Bureaucrat.cpp \
+			srcs/AForm.cpp \
+			srcs/Intern.cpp \
+			srcs/PresidentialPardonForm.cpp \
+			srcs/RobotomyRequestForm.cpp \
+			srcs/ShrubberyCreationForm.cpp \
+
+OBJS      = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 
 # ---------------------------------------------------------------------------- #
 #                                     Color                                    #

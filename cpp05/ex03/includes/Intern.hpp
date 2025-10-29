@@ -15,8 +15,8 @@ private:
 
 public:
     Intern();
-    // Intern(const Intern& other);
-    // Intern& operator=(const Intern& other);
+    Intern(const Intern& other);
+    Intern& operator=(const Intern& other);
     ~Intern();
 
     AForm* makeForm(std::string const formName, std::string const formTarget);
